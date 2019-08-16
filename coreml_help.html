@@ -3,14 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<meta name="generator" content="pdoc 0.6.2" />
+<meta name="generator" content="pdoc 0.6.3" />
 <title>coreml_help API documentation</title>
-<meta name="description" content="Python helper functions to facilitate working with CoreML and ONNX and converting from one to the other …" />
+<meta name="description" content="This module contains python classes and functions to facilitate examining and repairing CoreML models.
+A companion module, `pred_help`, contains …" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
-<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.3em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:0.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase;cursor:pointer}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
-<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:20%}#content{width:80%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:0.8em}.item .name{font-size:1.2em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:1.1em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase;cursor:pointer}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
 <style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
 </head>
 <body>
@@ -20,58 +21,27 @@
 <h1 class="title">Module <code>coreml_help</code></h1>
 </header>
 <section id="section-intro">
-<p>Python helper functions to facilitate working with CoreML and ONNX and converting from one to the other.</p>
-<p>These functions depend on package <code>coremltools</code>. If you are converting between ONNX and CoreML,
-you will need <code>onnx_coreml</code>, <code>onnx</code>, and <code>onnxruntime</code> as well.</p>
+<p>This module contains python classes and functions to facilitate examining and repairing CoreML models.
+A companion module, <code>pred_help</code>, contains classes and functions to generate, display and compare
+predictions from CoreML and other model types.</p>
+<p>Here you will find:</p>
+<ul>
+<li>
+<p>Class <a title="coreml_help.CoremlBrowser" href="#coreml_help.CoremlBrowser"><code>CoremlBrowser</code></a> - View and edit the CoreML <em>protobuf spec</em>,
+generate and capture the shapes, and compile the <em>spec</em> to produce a MLModel object.</p>
+</li>
+<li>
+<p>Convenience functions to call CoremlBrowser methods, and gather random images.</p>
+</li>
+</ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you want <em>real</em> help with CoreML, I highly recommend <strong>Matthijs Holleman's</strong>
 <em>“Core ML Survival Guide.”</em>. Informative and well-written.
 Easy to read, as much as books on this subject can be.</p>
 </div>
-<p>Also,</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip:&ensp;Use <strong>Netron</strong></p>
-</div>
-<p>In <code>coreml_help.py</code> you will find:</p>
-<p>The class "CoremlBrowser" inspection and "model surgery" methods</p>
-<pre><code>      show_nn         Show a summary of neural network layers by index or name
-      connect_layers  Connect the output of one layer to the input of another
-      delete_layers   Delete CoreML NN layers by *name*.
-      get_nn          Get the layers object for a CoreML neural network
-</code></pre>
-<p>Convenience Functions:</p>
-<pre><code>      show_nn          Show a summary of nn (Function equivalent of `show_nn` method)
-      show_head
-      show_tail        Convenience functions  of  method `show_nn`
-      get_rand_images  Return images (jpg and png) randomly sampled from child dirs.
-</code></pre>
-<p>Model Execution and Calculation Functions:</p>
-<pre><code>     norm_for_imagenet  Normalize using ImageNet values for mean and standard dev.
-     pred_for_coreml    Run and show Predictions for a native CoreML model
-     pred_for_onnx      Run and show Predictions for a native ONNX model
-     pred_for_o2c       Run and show Predictions for a CoreML model converted from ONNX
-     softmax
-</code></pre>
-<h2 id="use">Use</h2>
-<p>To use, initialize a browser instance using the '.mlmodel' file</p>
-<pre><code>  from coreml_help import CoremlBrowser
-  cmb = CoremlBrowser(" ... a '.mlmodel' file " )
-</code></pre>
-<p>Then the following are initialized:</p>
-<pre><code>  cmb.spec        # The protobuf spec
-  cmb.nn          # The neural network object
-  cmb.layers      # The nn layers array
-  cmb.layer_dict  # maps layer names to layer indexes
-  cmb.layer_count # the count of nn layers
-  cmb.shaper      # The shape inference object for this model
-</code></pre>
-<p>To show layers 10 - 15 (including shapes)</p>
-<pre><code>  cmb.show_nn(10,5)
-</code></pre>
-<p>To delete the layers named "conv_10" and "relu_14"</p>
-<pre><code>  cmb.delete_layers(['conv_10', 'relu_14'])
-</code></pre>
+<p>These functions depend on package <code>coremltools</code>. If you are converting between ONNX and CoreML,
+you will need <code>onnx_coreml</code>, <code>onnx</code>, and <code>onnxruntime</code> as well.</p>
 <p>I wrote these as a learning exercise for my own use. Feedback welcome.
 Most of this is based on the work of others,
 but there can be no question that any
@@ -80,68 +50,25 @@ bugs, errors, misstatements,and, especially, inept code constructs, are entirely
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">&#34;&#34;&#34;
-Python helper functions to facilitate working with CoreML and ONNX and converting from one to the other.
+This module contains python classes and functions to facilitate examining and repairing CoreML models.
+A companion module, `pred_help`, contains classes and functions to generate, display and compare
+predictions from CoreML and other model types.
 
-These functions depend on package `coremltools`. If you are converting between ONNX and CoreML,
-you will need `onnx_coreml`, `onnx`, and `onnxruntime` as well.
+Here you will find:
+
+  - Class `CoremlBrowser` - View and edit the CoreML *protobuf spec*,
+    generate and capture the shapes, and compile the *spec* to produce a MLModel object.
+
+  - Convenience functions to call CoremlBrowser methods, and gather random images.
+
 
 .. tip::
   If you want *real* help with CoreML, I highly recommend **Matthijs Holleman&#39;s**
   *“Core ML Survival Guide.”*. Informative and well-written.
   Easy to read, as much as books on this subject can be.
 
-Also,
-
-.. tip::    Use **Netron**
-
-In `coreml_help.py` you will find:
-
-The class &#34;CoremlBrowser&#34; inspection and &#34;model surgery&#34; methods
-```
-      show_nn         Show a summary of neural network layers by index or name
-      connect_layers  Connect the output of one layer to the input of another
-      delete_layers   Delete CoreML NN layers by *name*.
-      get_nn          Get the layers object for a CoreML neural network
-```
-Convenience Functions:
-```
-      show_nn          Show a summary of nn (Function equivalent of `show_nn` method)
-      show_head
-      show_tail        Convenience functions  of  method `show_nn`
-      get_rand_images  Return images (jpg and png) randomly sampled from child dirs.
-```
-Model Execution and Calculation Functions:
-```
-     norm_for_imagenet  Normalize using ImageNet values for mean and standard dev.
-     pred_for_coreml    Run and show Predictions for a native CoreML model
-     pred_for_onnx      Run and show Predictions for a native ONNX model
-     pred_for_o2c       Run and show Predictions for a CoreML model converted from ONNX
-     softmax
-```
-Use:
-
-  To use, initialize a browser instance using the &#39;.mlmodel&#39; file
-
-        from coreml_help import CoremlBrowser
-        cmb = CoremlBrowser(&#34; ... a &#39;.mlmodel&#39; file &#34; )
-
-  Then the following are initialized:
-
-        cmb.spec        # The protobuf spec
-        cmb.nn          # The neural network object
-        cmb.layers      # The nn layers array
-        cmb.layer_dict  # maps layer names to layer indexes
-        cmb.layer_count # the count of nn layers
-        cmb.shaper      # The shape inference object for this model
-
-  To show layers 10 - 15 (including shapes)
-
-        cmb.show_nn(10,5)
-
-  To delete the layers named &#34;conv_10&#34; and &#34;relu_14&#34;
-
-        cmb.delete_layers([&#39;conv_10&#39;, &#39;relu_14&#39;])
-
+These functions depend on package `coremltools`. If you are converting between ONNX and CoreML,
+you will need `onnx_coreml`, `onnx`, and `onnxruntime` as well.
 
 I wrote these as a learning exercise for my own use. Feedback welcome.
 Most of this is based on the work of others,  but there can be no question that any
@@ -150,84 +77,317 @@ bugs, errors, misstatements,and, especially, inept code constructs, are entirely
 ---------------------
 &#34;&#34;&#34;
 
-# Configuration, common imports and functions
+# pdoc - dictionary and helper function - used below to document named tuples
+__pdoc__ = {}
+def _doc(key:str, val:str): __pdoc__[key] = val
 
 import numpy as np
 from pathlib import Path
 from collections import namedtuple
 from coremltools.proto import Model_pb2
+from coremltools.models.model import MLModel
 import coremltools.models.model as cm
-import coremltools.models.utils as cu
 
 ### Convenience Types
 # If a type starts with a &#39;u&#39;, it is almost certainly one of these, and defined here
 #
-if &#39;uarray&#39; not in globals():
+if &#39;Uarray&#39; not in globals():
   from typing import Union, List
   from PIL    import Image
   from numpy  import ndarray
 
-  uarray = Union[ndarray, List]
-  uimage = Union[ndarray, Image.Image]
-  upath  = Union[Path,str]
+  Uarray = Union[ndarray, List]
+  &#34;&#34;&#34; ndarray or a list&#34;&#34;&#34;
+  Uimage = Union[ndarray, Image.Image]
+  &#34;&#34;&#34; ndarray or an image&#34;&#34;&#34;
+  Upath  = Union[Path,str]
+  &#34;&#34;&#34; Path object or a string&#34;&#34;&#34;
 
-### Data , data sources and functions #########################
+### Data Formats #########################
 
-ImageRepo = namedtuple(&#39;ImageRepo&#39; ,&#34;mean std labels_url&#34;)
+LayerAudit = namedtuple(&#39;LayerAudit&#39;, &#39;changed_layer input_before input_after error&#39;)
+# doc
+_doc(&#39;LayerAudit&#39;,&#39;Namedtuple to track changes to a CoreML model&#39;)
+_doc(&#39;LayerAudit.changed_layer&#39;, &#39;*Name* of the changed layer&#39;)
+_doc(&#39;LayerAudit.input_before&#39;, &#39;Value of the input list *before* any changes&#39;)
+_doc(&#39;LayerAudit.input_after&#39;, &#39;Value of the input list *after* any changes&#39;)
+_doc(&#39;LayerAudit.error&#39;, &#39;Errors, if any&#39;)
 
-imagenet = ImageRepo( mean   = [0.485, 0.456, 0.406], std= [0.229, 0.224, 0.225],
-                      labels_url =&#39;https://s3.amazonaws.com/onnx-model-zoo/synset.txt&#39; )
+_sp  = &#39; &#39;  # Spacer, e.g. f&#34;{_sp:10}&#34;
 
-cifar    = ImageRepo( mean = [0.491, 0.482, 0.447], std=[0.247, 0.243, 0.261], labels_url=None)
-
-mnist    = ImageRepo( mean = [0.15]*3, std  = [0.15]*3, labels_url=None)
-
-
-# CoreML Model inspection
-
-class CoremlBrowser(object):
+class CoremlBrowser:
   &#34;&#34;&#34;
-  Encapsulates routines to browse and edit CoreML Models
+  Class to browse and repair CoreML models.
+
+  To **use**, initialize a browser instance using the &#39;.mlmodel&#39; file
+  (Also called the *spec* file or the *protobuf spec* file).
+
+      from coreml_help import CoremlBrowser
+      cmb = CoremlBrowser(&#34; ... a .mlmodel file &#34; )
+
+  Then in the browser object following will be **initialized**:
+
+      cmb.spec        # The *protobuf spec*
+      cmb.nn          # The neural network object
+      cmb.layers      # The neural network layers list
+      cmb.layer_dict  # maps layer names to layer indexes
+      cmb.layer_count # the count of nn layers
+      cmb.shaper      # The shape inference object for this model
+
+  To **show** layers 10 - 15 (including shapes)
+
+      cmb.show_nn(10,5)
+
+  To **delete** the layers named &#34;conv_10&#34; and &#34;relu_14&#34;
+
+      cmb.delete_layers([&#39;conv_10&#39;, &#39;relu_14&#39;])
+
+  The principal inspection and &#34;model surgery&#34; methods are
+
+    - `CoremlBrowser.show_nn`         Show a summary of neural network layers by index or name
+    - `CoremlBrowser.connect_layers`  Connect the output of one layer to the input of another
+    - `CoremlBrowser.delete_layers`   Delete CoreML NN layers by *name*.
+
+  Associated Convenience Functions:
+
+    - `show_nn`          Show a summary of nn (Function equivalent of show_nn method)
+    - `show_head`
+    - `show_tail`        Convenience functions  of  method `show_nn`
+    - `get_rand_images`  Return images (jpg and png) randomly sampled from child dirs.
+
+  -------
   &#34;&#34;&#34;
-  def __init__(self, mlmodel_file:upath):
-    self.mlmodel_path = Path(mlmodel_file)
-    &#34;&#34;&#34; Path to the mlmodel file&#34;&#34;&#34;
-    self.spec   = cu.load_spec(self.mlmodel_path)
-    &#34;&#34;&#34; (Protobuf) spec for the model&#34;&#34;&#34;
-    self.shaper = cm.NeuralNetworkShaper(self.spec)
-    &#34;&#34;&#34; Shape inference object for this model&#34;&#34;&#34;
-    self.nn     = self.get_nn()
+
+  def __init__(self, mlmodel: Union[Upath, MLModel]):
+    &#34;&#34;&#34;
+
+    Args:
+      mlmodel: Either the path to the `protobuf` spec, or an extant `MLModel` object
+
+    &#34;&#34;&#34;
+    self.mlmodel = None
+    &#34;&#34;&#34; A MLModel object. The result of **compiling** the &#39;.mlmodel&#39; file &#34;&#34;&#34;
+    self.mlmodel_path = None
+    &#34;&#34;&#34; The full path of the &#39;.mlmodel&#39; file &#34;&#34;&#34;
+
+    if isinstance(mlmodel, MLModel):
+      self.mlmodel = mlmodel
+      self.mlmodel_path = None
+    elif isinstance(mlmodel, Path) or isinstance(mlmodel, str):
+      self.mlmodel_path = Path(mlmodel)
+      self.mlmodel = cm.MLModel(self.mlmodel_path.as_posix())
+    else:
+      raise TypeError(&#34;&#39;mlmodel is not a MLModel, a Path, or a file path string&#34;)
+
+    self.spec = self.mlmodel.get_spec()
+    &#34;&#34;&#34; (Protobuf) spec for the model. Also the result of *loading* the &#39;.mlmodel&#39; file &#34;&#34;&#34;
+    self.nn = self.get_nn()
     &#34;&#34;&#34; Neural network layers object&#34;&#34;&#34;
     self.layers = self.nn.layers
     &#34;&#34;&#34; Neural network layers&#34;&#34;&#34;
     self.layer_count = len(self.layers)
-    self.layer_dict = {layer.name:i for i,layer in enumerate(self.layers)}
+    &#34;&#34;&#34; NUmber  of layers&#34;&#34;&#34;
+    self.layer_dict = {layer.name: i for i, layer in enumerate(self.layers)}
     &#34;&#34;&#34; Maps a layer name to its index&#34;&#34;&#34;
     self.name_len_centile = int(np.percentile(np.array([len(l.name) for l in self.layers]), 90))
+    &#34;&#34;&#34; 90% of the layer names are equal to or shorter than this value&#34;&#34;&#34;
+    self.shaper = None
+    &#34;&#34;&#34; Shape inference object for this model&#34;&#34;&#34;
+    self.layer_shapes = None
+    &#34;&#34;&#34; Shape dictionary for this model&#34;&#34;&#34;
+    self.init_shapes()
+
+
+  def compile_coreml(self)-&gt;str:
+    &#34;&#34;&#34;
+    Compile the protobuf spec using the OSX `coremlcompiler` application.
+    Used to capture shape information when instantiating a CoremlBrowser.
+
+    Uses:
+      `CoremlBrowser.spec`, the (Protobuf) spec for the model.
+
+    Returns:
+      `stdout` (str): The *stdout* from the compiler,
+      which (should) contain shape info, or an empty string.
+
+    Note:
+      The *OSX shell command* to run the compiler is
+
+      `xcrun coremlcompiler compile rn50.mlmodel out &gt; rn50-compile-out.txt`
+
+    &#34;&#34;&#34;
+    from sys import platform
+    from subprocess import run, CompletedProcess, PIPE
+
+    if platform != &#39;darwin&#39;: return &#39;&#39;
+    compile_cmd = [&#39;xcrun&#39;, &#39;coremlcompiler&#39;, &#39;compile&#39;, self.mlmodel_path, &#39;.&#39;]
+    compilation: CompletedProcess = run(compile_cmd, stdout=PIPE, stderr=PIPE, universal_newlines=True)
+    return compilation.stdout if compilation.returncode == 0 else &#39;&#39;
+
+
+  def extract_shapes(self, comp_output:str )-&gt;dict:
+    &#34;&#34;&#34;
+    Extract the shape of the network layers from the mlmodel compilation output file.
+
+    Args:
+      comp_output: The text output captured from compiling the .mlmodel file.
+
+    Returns a dictionary of lists keyed by layer name, each list is a triplet [C,H,W]
+    representing the output shape of that layer.
+
+        `{ layer0_name:[C,H,W], layer1_name:[C,H,W] .. }`
+
+    Notes:
+      Here is an sample line from the compiler output
+
+    `
+    Neural Network compiler 174: 320 , name = 507, output shape : (C,H,W) = (4096, 1, 1)
+    `
+    &#34;&#34;&#34;
+    if comp_output is None or  len(comp_output) &lt; 20 :
+      print(f&#34;Compilation output string is None or too small&#34;,f&#34;compiliation output: {comp_output}&#34; )
+      return None
+
+    # Used to extract name and shapes from lines in the out_file
+
+    import re
+    name  = re.compile(r&#34;name =\s+([/\w]+),&#34;)
+    shape = re.compile(r&#34;=\s+\((-?\d+),\s+(-?\d+),\s+(-?\d+)\)&#34;)
+    lines = re.split(&#34;\n&#34;,comp_output)
+
+    # The comprehension below pulls name and shapes from each line in the array
+    # and outputs them as a dictionary.
+
+    layer_shapes = \
+      {n.group(1): [s.group(1), s.group(2), s.group(3)]
+       for n, s in [(name.search(ln), shape.search(ln)) for ln in lines] if n and s }
+
+    # First line is a header
+    # Second line (index 1) is input name and is a different format - just reported, not compiled
+
+    line1 = lines[1]
+    name1 = re.search(r&#39;^\w+&#39;, line1).group(0)
+    s     = shape.search(line1)
+    layer_shapes[name1] = [s.group(1), s.group(2), s.group(3)]
+
+    if len(layer_shapes) == 0:
+      raise ValueError(f&#34;Nothing found, check contents of compilation output&#34;)
+
+    return layer_shapes
+
+
+  def init_shapes(self, use_shaper=False):
+    &#34;&#34;&#34;
+    Get shapes for the layers in the model. Compiles model to get shapes.
+
+    Args:
+      use_shaper (bool):
+        False =&gt; Ignore the shaper object, try to compile model to get shapes
+        True  =&gt; Use the shaper object if available
+
+    Returns:
+      True for success =&gt; the object variable `layer_shapes` contains a valid shape dictionary
+      False for failure
+
+    The`NeuralNetworkShaper` object crashes python sometimes
+    (prob. because the network is invalid in some way),
+    - so it is not preferred.
+    &#34;&#34;&#34;
+    self.layer_shapes = None
+    self.shaper       = None
+
+    if use_shaper:
+      try:
+        self.shaper = cm.NeuralNetworkShaper(self.spec)
+      except Exception as e :
+        self.shaper = None
+        shaper_exception = e
+        print(&#34;&#39;NeuralNetworkShaper&#39; reports &#34;, shaper_exception)
+
+    if self.shaper is None:
+      comp_out = self.compile_coreml()
+      self.layer_shapes = self.extract_shapes(comp_out)
+
+    if self.layer_shapes is not None:
+      print(f&#34;Using shape info from compilation output&#34;)
+
+    if self.shaper is None and self.layer_shapes is None:
+      print(&#34;  Can&#39;t infer shapes because &#39;NeuralNetworkShaper&#39; is not available&#34;)
+      print(&#34;  and could not compile the model to generate shapes&#34;)
+      print()
+
+
+
 
   def _repr(self):
     &#34;&#34;&#34;
-    Show something more useful than &#34;object&#34; when called
+    Show the path, layer count and description for this model.
+    (goal is to something more useful than &#34;object&#34; when called)
     &#34;&#34;&#34;
     all_text = &#39;&#39;
-    for n in (&#39;mlmodel_path&#39;,&#39;layer_count&#39;,&#39;spec.description&#39;):
+
+    for n in (&#39;mlmodel_path&#39;,&#39;layer_count&#39;):
       v = eval(f&#34;self.{n}&#34;)
-      nv_text = f&#34;{n:17} = {v}&#34;
+      nv_text = f&#34;{n:17.17} = {v}&#34;
       print(nv_text)
       all_text.join(nv_text)
+
+    if self.layer_shapes is not None:
+      nv_text = f&#34;layer_shapes_count = {len(self.layer_shapes)}&#34;
+      print(nv_text)
+      all_text.join(nv_text)
+
+    # Show this last
+    v = self.spec.description
+    nv_text = f&#34;\n{n:17.17} = {v}&#34;
+    print(nv_text)
+    all_text.join(nv_text)
+
     return all_text
 
 
   def __repr__(self): return self._repr()
 
 
+  def get_shape_for(self, name:str) -&gt; Union[list,dict,None]:
+    &#34;&#34;&#34;
+    Try to get the shape for layer `name`
+
+    Args:
+      name (str): The name of the layer
+
+    Returns (Union[dict, str]):
+      The shape dict object from the shape dictionary if it exists, or
+      The shape dict returned by the shaper object if it exists, or
+      The text of the exception generated by the shaper object, or
+      None
+    &#34;&#34;&#34;
+    res = None
+
+    if self.layer_shapes is not None:
+      res = self.layer_shapes.get(name)
+
+    if res is None and self.shaper is not None:
+      try: res = self.shaper.shape(name)
+      except IndexError as e: pass
+
+    return res
+
+  def get_layer_name(self, name:str):
+    &#34;&#34;&#34;Locate and return a nn layer using its name&#34;&#34;&#34;
+    return self.layers[self.layer_dict[name]]
+
+  def get_layer_num(self, idx:int):
+    &#34;&#34;&#34;Locate and return a nn layer using its index value&#34;&#34;&#34;
+    return self.layers[idx]
+
   def get_nn(self) -&gt; Model_pb2.Model.neuralNetwork:
     &#34;&#34;&#34;
     Get the layers object for a CoreML neural network.
 
-    Args:
-      spec (Model): The `protobuf` spec. for this CoreML model.
-                    Returned by `coremltools.util.load_spec(&#34;file.mlmodel&#34;)`
+    Uses:
+      self.spec (Model): The `protobuf` spec. for this CoreML model.
+                Returned by `coremltools.util.load_spec(&#34;file.mlmodel&#34;)`
 
     Return:
       The neural network layers of the model or an Attribute Error.
@@ -259,29 +419,29 @@ class CoremlBrowser(object):
 
   _ph = &#39;~&#39;  # Placeholder char(s) for strings below ...
   @staticmethod
-  def _tbd(self,l): return &#34;              - &#34;
+  def _tbd(self,l): return f&#34;{&#39;-&#39;:&gt;8} &#34;
   def _repf(self, rf): return str.join(&#39;x&#39;, [str(f) for f in rf]) if len(rf) != 0 else self._ph
-  @staticmethod
-  def _fmt_add(self,l): return f&#34;add     &#34;
-  def _fmt_act(self,l): return f&#34;{l.activation.WhichOneof(&#39;NonlinearityType&#39;):8}&#34;
-  def _fmt_pool(self, l): return f&#34;pool   &#34; + f&#34;          sz:{self._repf(l.pooling.kernelSize)}  str:{self._repf(l.pooling.stride)}&#34;
-  def _fmt_concat(self, l): return f&#34;concat  &#34;
-  def _fmt_reshape(self, l): return f&#34;reshape          target:{l.reshape.targetShape}&#34;
+  #
+  def _fmt_act(self,l):      return f&#34;{l.activation.WhichOneof(&#39;NonlinearityType&#39;):8} &#34;
+  def _fmt_pool(self, l):    return f&#34;{&#39;pool&#39;:8} {_sp:9}  sz:{self._repf(l.pooling.kernelSize)}  str:{self._repf(l.pooling.stride)}&#34;
+  def _fmt_add(self, l):     return f&#34;{&#39;add&#39;:8} &#34;
+  def _fmt_concat(self, l):  return f&#34;{&#39;concat&#39;:8} &#34;
+  def _fmt_reshape(self, l): return f&#34;{&#39;reshape&#39;:8} {_sp:9}  target:{l.reshape.targetShape}&#34;
 
   def _fmt_bn(self, l):
     bn  = l.batchnorm
     bc  = f&#34;{bn.channels}&#34;
-    return f&#34;bnorm  &#34; + f&#34;{bc:9} ep:{bn.epsilon:.3e}  wc:{len(bn.beta.floatValue) + len(bn.gamma.floatValue)}&#34;
+    return f&#34;{&#39;bnorm&#39;:8} {bc:9}  ep:{bn.epsilon:.3e}  wc:{len(bn.beta.floatValue) + len(bn.gamma.floatValue)}&#34;
 
   def _fmt_innerp(self, l):
     c   = l.innerProduct
     ic  = f&#34;{c.outputChannels}x{c.inputChannels}&#34;
-    return f&#34;innerp &#34; + f&#34;{ic:9} wc:{len(c.weights.floatValue)}&#34;
+    return f&#34;{&#39;innerp&#39;:8} {ic:9}  wc:{len(c.weights.floatValue)}&#34;
 
   def _fmt_conv(self, l):
     c     = l.convolution
     kc    = f&#34;{c.outputChannels}x{c.kernelChannels}&#34;
-    conv1 = f&#34;conv   &#34; + f&#34;{kc:9} sz:{self._repf(c.kernelSize)}  str:{self._repf(c.stride)}&#34;
+    conv1 = f&#34;{&#39;conv&#39;:8} {kc:9}  sz:{self._repf(c.kernelSize)}  str:{self._repf(c.stride)}&#34;
     conv2 = f&#34;  dil:{self._repf(c.dilationFactor)}  wc:{len(c.weights.floatValue)}&#34;
     return conv1 + conv2
 
@@ -292,17 +452,27 @@ class CoremlBrowser(object):
                     pooling=_fmt_pool, activation=_fmt_act,
                     add=_fmt_add, concat=_fmt_concat)
 
+
   def _fmt_shape(self, name: str) -&gt; str:
     &#34;&#34;&#34;
     Format the shape line
     &#34;&#34;&#34;
-    try:
-      s = self.shaper.shape(name)
-    except IndexError as e:
-      line = f&#34;      - {e} - &#34;
+    s = self.get_shape_for(name)
+
+    if s is None : return f&#34;        -   -   - &#34;
+
+    if type(s) is dict:
+      if &#39;k&#39; in s.keys():
+        line = f&#34;k h w n: {s[&#39;k&#39;]:2} {s[&#39;h&#39;]:2} {s[&#39;w&#39;]:2} {s[&#39;n&#39;]:2}&#34;
+      else:
+        line = f&#34; c h w:  {s[&#39;C&#39;]:2} {s[&#39;H&#39;]:2} {s[&#39;W&#39;]:2}   sb:{s[&#39;S&#39;]}{s[&#39;B&#39;]:}&#34;
+    if type(s) is list:
+        line = f&#34; c h w:  {s[0]:2} {s[1]:2} {s[2]:2}&#34;
     else:
-      line = f&#34;CHW: {s[&#39;C&#39;]} {s[&#39;H&#39;]} {s[&#39;W&#39;]}   SB:{s[&#39;S&#39;]}{s[&#39;B&#39;]}&#34;
+      line   = f&#34; c h w:  {s}&#34;
+
     return line
+
 
   def _fmt_for_one_line(self, layer, li: int) -&gt; str:
     &#34;&#34;&#34;
@@ -330,11 +500,12 @@ class CoremlBrowser(object):
     layer_name  = format(f&#34;{layer.name}&#34;, f&#34;&lt;{name_len}s&#34;)
     inputs      = format(f&#34;[{str.join(&#39;, &#39;, layer.input)}]&#34;, f&#34;&lt;{w_inputs}s&#34;)
     outputs     = format(f&#34;[{str.join(&#39;, &#39;, layer.output)}]&#34;, f&#34;&lt;{w_outputs}s&#34;)
-    shout       = self._fmt_shape(layer.name)
+    out_shape       = self._fmt_shape(layer.name)
 
     # Assemble the line to print
 
-    return f&#34;{li:3} {layer_name:5}  {inputs} {outputs} {shout:&gt;13}  {_fmt_type(self,layer)}&#34;
+    return f&#34;{li:3} {layer_name:8}  {inputs:10} {outputs:10} {out_shape:&gt;13.16}  {_fmt_type(self,layer)}&#34;
+
 
   def _fmt_for_two_lines(self,layer, li: int) -&gt; str:
     &#34;&#34;&#34;
@@ -359,14 +530,21 @@ class CoremlBrowser(object):
     layer_name = format(f&#34;{layer.name}&#34;, f&#34;&lt;{name_len}s&#34;)
     inputs     = format(f&#34;[{str.join(&#39;, &#39;, layer.input)}]&#34;, f&#34;&lt;{w_inputs}s&#34;)
     outputs    = format(f&#34;[{str.join(&#39;, &#39;, layer.output)}]&#34;, f&#34;&lt;{w_outputs}s&#34;)
-    shout      = self._fmt_shape(layer.name)
+    out_shape  = self._fmt_shape(layer.name)
 
     # Assemble the line(s) to print
 
-    line1     = f&#34;{li:3} {layer_name:32} {inputs :&lt;24}  {_fmt_type(self,layer)}&#34;
-    line2     = f&#34;{sp:3} {sp        :32} {outputs:&lt;24}  {shout}&#34;
+    line1     = f&#34;{li:3} {layer_name:24.24} {inputs :&lt;30.48}  {_fmt_type(self,layer)}&#34;
+    line2     = f&#34;{sp:3} {sp        :24.24} {outputs:&lt;30.30}  {out_shape}&#34;
 
     return line1 + &#34;\n&#34; + line2 + &#34;\n&#34;
+
+
+  # So that these can be changed dynamically, for now
+  sp = &#34;   &#34; # formatting spacer
+  _one_line_heading = f&#34;Lay Name{ sp:6}In{sp:9}Out{sp:9}Shapes{sp:10}Type,Chan(s){sp:9}Size,Stride,Dilation,#Wts&#34;
+  _two_line_heading = f&#34;Lay Name{sp:21}In/Out{sp:26}Type,Chan(s)/Shape{sp:3}Size,Stride,Dilation,#Wts&#34;
+  #_two_line_heading = f&#34;Lay Name{sp:20}In/Out{sp:30}Type,Chan(s){sp:7}Size,Stride,Dilation,#Wts&#34;
 
 
   def show_nn(self,  start:Union[int,str]=0, count=4,  break_len=8 ) -&gt; None:
@@ -397,17 +575,13 @@ class CoremlBrowser(object):
     if start &lt; 0                   : count = 3; start = nn_count + start
     if start + count &gt; nn_count    : start = nn_count - count
 
-    sp = &#34;   &#34; # formatting spacer
-    one_line_heading = f&#34;Lay Name{ sp:4}In{sp:8}Out{sp:6}Shapes{sp:7}Type,Chan(s){sp:7}Size,Stride,Dilation,#Wts&#34;
-    two_line_heading = f&#34;Lay Name{sp:32}In/Out{sp:24}Type,Chan(s){sp:7}Size,Stride,Dilation,#Wts&#34;
-
     # If &gt;= 90% layer names are &#34;short&#34;, print layer on one line, otherwise use two
     if self.name_len_centile &lt;= break_len:
       format_layer = self._fmt_for_one_line
-      heading      = one_line_heading
+      heading      = self._one_line_heading
     else:
       format_layer = self._fmt_for_two_lines
-      heading      = two_line_heading
+      heading      = self._two_line_heading
 
     print(heading)
 
@@ -420,8 +594,8 @@ class CoremlBrowser(object):
       li += 1
 
 
-  &#34;&#34;&#34;
-  CoreML Model Surgery - connect and delete layers
+  &#34;&#34;&#34; 
+  CoreML Model Surgery - connect and delete layers 
   &#34;&#34;&#34;
 
   def connect_layers(self, from_:str, to_:str, replace=True)-&gt;namedtuple:
@@ -430,8 +604,7 @@ class CoremlBrowser(object):
 
     Layers are identified by name. An invalid layer name aborts any connection attempt.
     Note that when two layers are *connected*, only one layer is modified:
-    the only field that changes is the **to** layer&#39;s *input* field. Note also
-    that the  keyword arguments `from_` and `to_` are suffixed by underscores.
+    the only field that changes is the **to** layer&#39;s *input* field.
 
     Args:
       from_ (str): The name of the layer supplying the outputs
@@ -439,45 +612,40 @@ class CoremlBrowser(object):
       to_ (str): The name of the layer receiving the `from` outputs.
                    This layer&#39;s `input` field is modified.
 
-      replace (bool): *True* (default) Replaces (overwrites)
-                  the &#39;to&#39; layer&#39;s input with the &#39;from&#39; layer&#39;s output.
-                  *False* appends the &#39;from&#39; layer&#39;s output to the the &#39;to&#39; layer&#39;s input.
+      replace (bool): *True* (default) **Replaces** (overwrites)
+                  the *to layer*&#39;s `input` with the *from layer*&#39;s `output`.
+                  *False* **appends** the *from layer*&#39;s `output` to the the *to layer*&#39;s `input`.
 
     Return:
       A named tuple describing the change (see examples that follow)
 
     Examples:
+      ```
+        cmb = CoremlBrowser( ... path to &#39;mlmodel&#39; file ...)
+        cmb.connect_layers(from_=&#39;conv336&#39;, to_=&#39;bnorm409&#39;)
+      ```
+      returns:
+      ```
+        ( changed_layer = &#39;bnorm409&#39;,
+          input_before  = [&#39;concat408_output&#39;, &#39;add400_output&#39;],
+          input_after   = [&#39;conv336_output&#39;] )
 
-          cmb = CoremlBrowser( ... path to &#39;mlmodel&#39; file ...)
-
-          cmb.connect_layers(from_=&#39;conv336&#39;, to_=&#39;bnorm409&#39;)
-
+         connect_layers(nn, from_=&#39;conv100&#39;, to_=&#39;concat408&#39;)
+      ```
       returns:
 
-          ( changed_layer = &#39;bnorm409&#39;,
-            input_before  = [&#39;concat408_output&#39;, &#39;add400_output&#39;],
-            input_after   = [&#39;conv336_output&#39;] )
-
-
-          connect_layers(nn, from_=&#39;conv100&#39;, to_=&#39;concat408&#39;)
-
-      returns:
-
-          (changed_layer =  &#39;None&#39;, error = &#34;Layer [&#39;conv100&#39;] not found&#34;)
-
+        `  (changed_layer =  &#39;None&#39;, error = &#34;Layer [&#39;conv100&#39;] not found&#34;)  `
     &#34;&#34;&#34;
     from copy import deepcopy
 
     ldict        = self.layer_dict
     layers       = self.layers
-    layer_change = namedtuple(&#39;layer_audit&#39;,&#39;changed_layer input_before input_after error&#39;)
     layer_names  = ldict.keys()
     missing      = [ name for name  in [from_, to_] if name not in layer_names ]
 
-    if len(missing) &gt; 0: return layer_change(changed_layer = &#34;NONE&#34;,
-                                             error         = f&#34;Layer(s) {[missing]} not found&#34;,
-                                             input_before  = None,
-                                             input_after   = None )
+    if len(missing) &gt; 0:
+      return LayerAudit(changed_layer=&#34;NONE&#34;, input_before=None, input_after=None, error=f&#34;Layer(s) {[missing]} not found&#34;)
+
     from_layer   = layers[ldict[from_]]
     to_layer     = layers[ldict[to_]]
     input_before = deepcopy(to_layer.input)
@@ -489,10 +657,7 @@ class CoremlBrowser(object):
     for i in range(len(from_layer.output)):
       to_layer.input.append(from_layer.output[i])
 
-    return layer_change(changed_layer = to_layer.name,
-                        input_before  = input_before,
-                        input_after   = deepcopy(to_layer.input),
-                        error = None )
+    return LayerAudit(changed_layer=to_layer.name, input_before=input_before, input_after=deepcopy(to_layer.input), error=None)
 
 
   def delete_layers(self, names_to_delete:[str])-&gt;[dict]:
@@ -506,15 +671,16 @@ class CoremlBrowser(object):
       An array of dicts, one for each deletion
 
     Example:
-
-          delete_layers(nn,[&#39;conv335&#39;,&#39;bn400&#39;,&#39;avt500&#39;]) # ( assume &#39;avt500&#39; does not exist)
-
-        returns:
-          [
-            {&#39;deleted_layer&#39;: &#39;conv335&#39;,  &#39;input&#39;: [&#39;bn334&#39;], &#39;output&#39;: [&#39;conv335&#39;]},
-            {&#39;deleted_layer&#39;: &#39;bn400&#39;, &#39;input&#39;: [&#39;conv399&#39;], &#39;output&#39;: [&#39;bn400&#39;]},
-          ]
-
+    ```
+      delete_layers(nn,[&#39;conv335&#39;,&#39;bn400&#39;,&#39;avt500&#39;]) # ( assume &#39;avt500&#39; does not exist)
+    ```
+    returns:
+    ```
+      [
+        {&#39;deleted_layer&#39;: &#39;conv335&#39;,  &#39;input&#39;: [&#39;bn334&#39;], &#39;output&#39;: [&#39;conv335&#39;]},
+        {&#39;deleted_layer&#39;: &#39;bn400&#39;, &#39;input&#39;: [&#39;conv399&#39;], &#39;output&#39;: [&#39;bn400&#39;]},
+      ]
+    ```
     &#34;&#34;&#34;
     from copy import deepcopy
     deleted = []
@@ -535,6 +701,17 @@ class CoremlBrowser(object):
 
     return deleted
 
+  def compile_spec(self)-&gt;MLModel:
+    &#34;&#34;&#34;
+    Convenience method to re-compile and save model after editing the spec.
+    Returns the compiled spec - the MLModel object. Equivalent to:
+
+      `CoremlBrowser.mlmodel` = `coremltools.models.MLModel`(`CoremlBrowser.spec`)
+    &#34;&#34;&#34;
+    self.mlmodel = cm.MLModel(self.spec)
+    return self.mlmodel
+
+
 # Convenience Routines
 
 def show_nn(cmb:CoremlBrowser, start:Union[int, str]=0, count=4, break_len=8):
@@ -550,279 +727,21 @@ def show_tail(cmb:CoremlBrowser):
   &#34;&#34;&#34; Convenience for `show_nn(nn,-3)`&#34;&#34;&#34;
   show_nn( cmb, -3)
 
-
-def get_shapes( mlmodelc: upath ) -&gt; dict:
-  &#34;&#34;&#34;
-  Get the shape of the network layers from the &#39;model.espresso.shape&#39; file generated by compiling *.mlmodel*
-    (Not really used since incorporation of &#39;NeuralNetworkShaper&#39; object
-
-  Args:
-    mlmodelc(str): The *directory* containing the complied model. If the model name is *&#34;xyz.mlmodel&#34;*,
-    this directory will be named *&#34;xyz.mlmodelc&#34;*, in the same directory as the *mlmodel* file (usually).
-
-  Return:
-    Dictionary of tuples keyed by layer name. Each tuple is a triplet (C,H,W)
-    representing the output shape of that layer.
-
-        `{ layer0_name:(C,H,W), layer1_name:(C,H,W), ... }`
-  &#34;&#34;&#34;
-  import json
-
-  mlmodelc = Path(mlmodelc)
-  if  mlmodelc is not None  \
-      and mlmodelc.exists() \
-      and mlmodelc.is_dir() :
-    with open(mlmodelc/&#39;model.espresso.shape&#39;) as f: shape_dict = json.load(f)
-    shapes = { k:(ls[&#39;k&#39;],ls[&#39;w&#39;],ls[&#39;h&#39;]) for k,ls in shape_dict[&#39;layer_shapes&#39;].items() }
-  else:
-    raise NotADirectoryError(f&#34;mlmodelc = &#39;{mlmodelc}&#39;&#34;)
-  return shapes
-
-
-&#34;&#34;&#34;
-Layer Calculations
-&#34;&#34;&#34;
-
-def softmax( x:uarray )-&gt;ndarray:
-  &#34;&#34;&#34;
-  Scale values to be between 0.0 - 1.0 so they can be used as probabilities.
-  Formula is:
-
-      exp(x)/sum(exp(x))
-
-  Args:
-    x (Union[List,ndarray]): Values on which to calculate the softmax.
-                             Should be ndarray or convertible to an ndarray
-
-  Returns:
-    softmax as ndarray
-
-  &#34;&#34;&#34;
-
-  np_exp = np.exp(np.array(x))
-  return np_exp / np.sum(np_exp, axis=0)
-
-
-def norm_for_imagenet( img:uimage )-&gt;ndarray:
-  &#34;&#34;&#34;
-  Normalize an image using ImageNet values for mean and standard deviation.
-
-  For each pixel in each channel, scale to the interval [0.0, 1.0] and then
-  normalize using the mean and standard deviation from ImageNet.
-  The input values are assumed to range from 0-255,
-  input type is assumed to be an ndarray,
-  or an image format that can be converted to an ndarray.
-  Here is the formula:
-
-      normalized_value = (value/255.0 - mean)/stddev
-
-      mean = [0.485, 0.456, 0.406]
-      std  = [0.229, 0.224, 0.225]
-
-  Args:
-    img (Union[ndarray, Image.Image]):
-      Image data with values between 0-255.
-      If not an ndarray, must be convertible to one.
-      Shape must be either (3,_,_) or (_,_,3)
-
-  Return:
-    Normalized image data as an ndarray[float32]
-
-  Raises:
-    ValueError: If image shape is not (3,_,_) or (_,_,3), or number of dimensions is not 3
-
-  &#34;&#34;&#34;
-  img = np.array(img)
-  if img.ndim != 3 : raise ValueError(f&#34;Image has {img.ndim} dimensions, expected 3&#34;)
-
-  # Mean and Stddev for image net
-  mean  = imagenet.mean
-  std   = imagenet.std
-
-  shape = img.shape
-  nimg  = np.zeros(shape).astype(&#39;float32&#39;)
-
-  # for each pixel in each channel, divide the value by 255 to get value between [0, 1] and then normalize
-  if shape[0] == 3:
-    for i in range(3): nimg[i, :, :] = (img[i, :, :] / 255.0 - mean[i]) / std[i]
-  elif shape[2] == 3:
-    for i in range(3): nimg[:, :, i] = (img[:, :, i] / 255.0 - mean[i]) / std[i]
-  else:
-    raise ValueError(f&#34;Image shape is {shape}, expected (3,_,_) or (_,_,3)&#34;)
-
-  return nimg
-
-
-&#34;&#34;&#34;
-Model Execution and Prediction
-&#34;&#34;&#34;
-
-def pred_for_o2c(model, img, n_top=3, in_name=&#39;data&#39;, out_name=&#39;resnetv24_dense0_fwd&#39;, labels=None):
-  &#34;&#34;&#34;
-  Run the CoreML Classifier model that was converted from ONNX and return the top results.
-
-  This function converts the output from the final layer to a list of probabilities,
-  then extracts the top items and associated labels.
-
-  This step is needed because the ONNX Resnet50 model does not contain a final softmax layer, and the
-  conversion to CoreML does not add one. (The native CoreML Resnet50 does have a softmax layer)
-
-  Args:
-    model (object): The CoreML model to use for inference
-    img (Image.Image): The image to process. Expected to be an image with values 0-255
-    in_name (str): Starting Layer Input name
-    out_name (str): Final Layer Output name
-    n_top (int): Number of top values to return (default 3)
-    labels ([str]): Class Labels for output
-
-  Return:
-    dict with four items:
-
-      - topI [ Indexes to top probabilities ], from np.argsort
-      - topP [ Top probabilities ]
-      - topL [ Top Labels ]
-      - topRes [ Top Labels and probabilities as formatted strings ], or [] if labels=None
-  &#34;&#34;&#34;
-
-  topI, topP, topL, topRes = [0], [0.00], [&#34;No Results&#34;], [&#34;No Results&#34;]
-  try:
-    y = model.predict({in_name:img}, usesCPUOnly=True)
-
-  except Exception as e :
-    topRes[0] = f&#34;No Results; Exception: {e}&#34;
-    print(&#39;Exception:&#39;,e)
-
-  else:
-    r    = y[out_name]
-    res  = np.squeeze(np.array(r))
-    prob = softmax(res)
-    topI = np.argsort(prob)[:-(n_top+1):-1]
-    topP = [ prob[i]*100 for i in topI ],
-    topL = [ labels[i]   for i in topI ],
-    topRes = [f&#34;{labels[i][:30]:32} {100 * prob[i]:.4g}&#34; for i in topI]
-    #
-  return dict(topI=topI , topP=topP, topL=topL, topRes=topRes)
-
-
-def pred_for_onnx(sess, img:uimage, n_top=3, labels=None):
-  &#34;&#34;&#34;
-  Run the ONNX Classifier model and return the top results.
-
-  This function
-
-    - normalizes the image data,
-    - if needed, massages the data to a shape of (3,_,_)
-    - runs the model using `onnxruntime`
-    - converts the output from the final layer to a list of probabilities,
-    - extracts the top items and associated labels.
-
-  Args:
-    sess (object) : the ONNX run-time session(model) to use for prediction
-    img (Union[ndarray,Image.Image]):  image or image data to use for test
-    n_top (int): Number of top values to return (default 4)
-    labels ([str]): Class labels for output
-
-  Return:
-    Dict with four items:
-
-      - topI [ Indexes to top probabilities ], from argsort
-      - topP [ Top probabilities ]
-      - topL [ Top Labels ]
-      - topRes [ Top Labels and probabilities as formatted strings ], or [] if labels=None
-  &#34;&#34;&#34;
-  # Use the image to generate acceptable input for the model
-  # - move axes if needed, normalize, add a dimension to make it (1,3,224,224)
-  nimg  = np.array(img)
-  nimg2 = np.moveaxis(nimg,[0,1,2],[1,2,0]) if nimg.shape[2] == 3 else nimg
-  topI, topP, topL, topRes = [0], [0.00], [&#34;No Results&#34;], [&#34;No Results&#34;]
-
-  try: pimg  = norm_for_imagenet(nimg2)
-  except Exception as e :
-    print(&#39;Exception:&#39;,e)
-    return dict(topI=topI, topP=topP, topL=topL, topRes=topRes)
-
-  x     = np.array([pimg])
-  # Get input and output names for the model
-  input0 = sess.get_inputs()[0]
-  output = sess.get_outputs()[0]
-  input0_name = input0.name
-  output_name = output.name
-
-  # Run the model
-  try:
-    r = sess.run([output_name], {input0_name: x})
-
-  except Exception as e :
-    topRes[0] = f&#34;No Results; Exception: {e}&#34;
-    print(&#39;Exception:&#39;,e)
-
-  else:  # Get predictions from the results
-    res  = np.squeeze(np.array(r))  # eliminate dimensions w/ len=1 , e.g. from (1,1,1000) --&gt; (1000,)
-    prob = softmax(res)
-    topI = np.argsort(prob)[:-(n_top+1):-1]
-    topP = [ prob[i]*100 for i in topI ],
-    topL = [ labels[i]   for i in topI ],
-    topRes = [f&#34;{labels[i][:30]:32} {100 * prob[i]:.4g}&#34; for i in topI]
-
-  return dict(topI=topI, topP=topP, topL=topL, topRes=topRes)
-
-
-def pred_for_coreml(model, img, n_top=3, in_name=&#39;image&#39;, out_name=&#39;classLabelProbs&#39;):
-  &#34;&#34;&#34;
-  Run a native CoreML Classifier and return the top results.
-
-  Args:
-    model (object) : the coreml model to use for the prediction
-    in_name (str): Starting Input Layer name
-    out_name (str): Final Output Layer name
-    img (Image.Image): fitted image to use for test
-    n_top (int): Number of top values to return (default 3)
-
-  Return:
-    dict with four items:
-
-      - topI [ Indexes to top probabilities ], from argsort
-      - topP [ Top probabilities ]
-      - topL [ Top Labels ] or [] if labels=None
-      - topRes [ Top Labels and probabilities as formatted strings ] or [] if labels=None
-
-  &#34;&#34;&#34;
-  topI, topP, topL, topRes = [0], [0.00], [&#34;No Results&#34;], [&#34;No Results&#34;]
-
-  try:
-    y = model.predict({in_name:img}, usesCPUOnly=True)
-
-  except Exception as e :
-    topRes[0] = f&#34;No Results; Exception: {e}&#34;
-    print(&#39;Exception:&#39;,e)
-
-  else:
-    pdict  = y[out_name]
-    prob   = np.array([v for v in pdict.values()])
-    labels = np.array([k for k in pdict.keys()])
-    topI   = np.argsort(prob)[:-(n_top+1):-1]
-    topP   = [prob[i] * 100 for i in topI],
-    topL   = [labels[i] for i in topI],
-    topRes = [f&#34;{labels[i][:30]:32} {100 * prob[i]:.4g}&#34; for i in topI]
-
-  return dict( topI=topI, topP=topP, topL=topL, topRes=topRes)
-
-
-def _is_imgfile(f:upath)-&gt;bool:
+def is_imgfile(f:Upath)-&gt;bool:
   &#34;&#34;&#34;True if the file ends in &#39;jpg&#39; or &#39;png&#39; &#34;&#34;&#34;
   f = Path(f)
-  return f.is_file() and (f.suffix == &#39;.jpg&#39; or f.suffix == &#39;.png&#39;)
+  return f.is_file() and f.suffix in [&#39;.jpg&#39;,&#39;.png&#39;,&#39;jpeg&#39;]
 
 
-def _rand_imgs_fm_dir(dir_path: upath, n_images=40, limit=400) -&gt; list:
+def _rand_imgs_fm_dir(dir_path: Upath, n_images=40, limit=400) -&gt; list:
   &#34;&#34;&#34;
   Return a list of image file names chosen randomly from `dir_path`.
 
   Args:
-    dir_path(upath): Path or str for the directory
-    n_images (int):  Requested number of image file names
-    limit (int):     Limit the number of files used for the random sample.
-                     Avoids un-intentional sampling of very large directorys.
+    dir_path (Upath): Path or str for the directory
+    n_images   (int): Requested number of image file names
+    limit      (int): Limit the number of files used for the random sample.
+                      Avoids un-intentional sampling of very large directorys.
 
   Returns:
     A list of randomly chosen &#39;.jpg&#39; or &#39;.png&#39; file names.
@@ -830,7 +749,6 @@ def _rand_imgs_fm_dir(dir_path: upath, n_images=40, limit=400) -&gt; list:
 
   Note:
     Only known to work on Unixen systems.
-
   &#34;&#34;&#34;
   import random
 
@@ -840,20 +758,18 @@ def _rand_imgs_fm_dir(dir_path: upath, n_images=40, limit=400) -&gt; list:
 
   # Collect  image files from directory and return a random sample
 
-  imgs_in_dir = [f for i, f in zip(range(max_files), dir_path.iterdir()) if _is_imgfile(f)]
+  imgs_in_dir = [f for i, f in zip(range(max_files), dir_path.iterdir()) if is_imgfile(f)]
   return random.sample(imgs_in_dir, min(len(imgs_in_dir), n_images))
 
-
-def get_rand_images(dir_path: upath, n_images=100, search_limit=400) -&gt; list:
+def get_rand_images(dir_path:Upath, n_images=100, search_limit=400)-&gt;list:
   &#34;&#34;&#34;
   Return images (jpg and png) randomly sampled from child directories.
 
   Args:
-    dir_path (upath): The parent directory of the children to search
-    n_images (int)  : Total number of images to return (actual number may be less)
-    search_limit (int) : Limit on the number of files to sample.
+    dir_path (Upath): The parent directory of the children to search
+    n_images (int): Total number of images to return (actual number may be less)
+    search_limit (int): Limit on the number of files to sample.
                          (To avoid performance issues with very large file counts)
-
   Returns:
     List of image files. Count may be less than requested.
 
@@ -872,44 +788,8 @@ def get_rand_images(dir_path: upath, n_images=100, search_limit=400) -&gt; list:
   return img_files
 
 
-def _get_labels(repo: Union[ImageRepo, str]) -&gt; list:
-  &#34;&#34;&#34;
-   Get the labels for the specified data source - still a work in progress
-
-   If the data is available locally, use that, otherwise download and save locally
-
-   Args:
-     repo (ImageRepo,str): namedTuple for the data source (See example) or a file path as str
-
-   Return:
-     List containing the labels
-
-   Example:
-     The &#39;imagenet&#39; ImageRepo looks like this:
-
-          imagenet =
-              ImageRepo(mean   = [0.485, 0.456, 0.406],
-                        std    = [0.229, 0.224, 0.225],
-                        url    = None,
-                        labels_url =&#39;https://s3.amazonaws.com/onnx-model-zoo/synset.txt&#39;,
-                        local  = data_root/&#39;imagenet&#39;,
-                        images = None,
-                        labels = data_root/&#39;imagenet/imagenet_labels.txt&#39;,
-                       )
-
-   &#34;&#34;&#34;
-  labels_file = repo if type(repo) is str else repo.labels
-  if labels_file is not None:
-    with open(labels_file, &#39;r&#39;) as list_:
-      labels = [line.rstrip() for line in list_]
-  else:
-    raise NotImplementedError(&#39;Labels file not found locally.  Please download and try again&#39;)
-  return labels
-
-
 def main():
   print(&#34;\ncoreml help functions loaded&#34;)
-
 
 if __name__ == &#39;__main__&#39;: main()</code></pre>
 </details>
@@ -928,27 +808,27 @@ if __name__ == &#39;__main__&#39;: main()</code></pre>
 <section class="desc"><p>Return images (jpg and png) randomly sampled from child directories.</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>dir_path</code></strong> :&ensp;<code>upath</code></dt>
+<dt><strong><code>dir_path</code></strong> :&ensp;<code>Upath</code></dt>
 <dd>The parent directory of the children to search</dd>
+<dt><strong><code>n_images</code></strong> :&ensp;<code>int</code></dt>
+<dd>Total number of images to return (actual number may be less)</dd>
+<dt><strong><code>search_limit</code></strong> :&ensp;<code>int</code></dt>
+<dd>Limit on the number of files to sample.
+(To avoid performance issues with very large file counts)</dd>
 </dl>
-<p>n_images (int)
-: Total number of images to return (actual number may be less)
-search_limit (int) : Limit on the number of files to sample.
-(To avoid performance issues with very large file counts)</p>
 <h2 id="returns">Returns</h2>
 <p>List of image files. Count may be less than requested.</p></section>
 <details class="source">
 <summary>Source code</summary>
-<pre><code class="python">def get_rand_images(dir_path: upath, n_images=100, search_limit=400) -&gt; list:
+<pre><code class="python">def get_rand_images(dir_path:Upath, n_images=100, search_limit=400)-&gt;list:
   &#34;&#34;&#34;
   Return images (jpg and png) randomly sampled from child directories.
 
   Args:
-    dir_path (upath): The parent directory of the children to search
-    n_images (int)  : Total number of images to return (actual number may be less)
-    search_limit (int) : Limit on the number of files to sample.
+    dir_path (Upath): The parent directory of the children to search
+    n_images (int): Total number of images to return (actual number may be less)
+    search_limit (int): Limit on the number of files to sample.
                          (To avoid performance issues with very large file counts)
-
   Returns:
     List of image files. Count may be less than requested.
 
@@ -967,48 +847,17 @@ search_limit (int) : Limit on the number of files to sample.
   return img_files</code></pre>
 </details>
 </dd>
-<dt id="coreml_help.get_shapes"><code class="name flex">
-<span>def <span class="ident">get_shapes</span></span>(<span>mlmodelc)</span>
+<dt id="coreml_help.is_imgfile"><code class="name flex">
+<span>def <span class="ident">is_imgfile</span></span>(<span>f)</span>
 </code></dt>
 <dd>
-<section class="desc"><p>Get the shape of the network layers from the 'model.espresso.shape' file generated by compiling <em>.mlmodel</em>
-(Not really used since incorporation of 'NeuralNetworkShaper' object</p>
-<h2 id="args">Args</h2>
-<p>mlmodelc(str): The <em>directory</em> containing the complied model. If the model name is <em>"xyz.mlmodel"</em>,
-this directory will be named <em>"xyz.mlmodelc"</em>, in the same directory as the <em>mlmodel</em> file (usually).</p>
-<h2 id="return">Return</h2>
-<p>Dictionary of tuples keyed by layer name. Each tuple is a triplet (C,H,W)
-representing the output shape of that layer.</p>
-<pre><code>`{ layer0_name:(C,H,W), layer1_name:(C,H,W), ... }`
-</code></pre></section>
+<section class="desc"><p>True if the file ends in 'jpg' or 'png'</p></section>
 <details class="source">
 <summary>Source code</summary>
-<pre><code class="python">def get_shapes( mlmodelc: upath ) -&gt; dict:
-  &#34;&#34;&#34;
-  Get the shape of the network layers from the &#39;model.espresso.shape&#39; file generated by compiling *.mlmodel*
-    (Not really used since incorporation of &#39;NeuralNetworkShaper&#39; object
-
-  Args:
-    mlmodelc(str): The *directory* containing the complied model. If the model name is *&#34;xyz.mlmodel&#34;*,
-    this directory will be named *&#34;xyz.mlmodelc&#34;*, in the same directory as the *mlmodel* file (usually).
-
-  Return:
-    Dictionary of tuples keyed by layer name. Each tuple is a triplet (C,H,W)
-    representing the output shape of that layer.
-
-        `{ layer0_name:(C,H,W), layer1_name:(C,H,W), ... }`
-  &#34;&#34;&#34;
-  import json
-
-  mlmodelc = Path(mlmodelc)
-  if  mlmodelc is not None  \
-      and mlmodelc.exists() \
-      and mlmodelc.is_dir() :
-    with open(mlmodelc/&#39;model.espresso.shape&#39;) as f: shape_dict = json.load(f)
-    shapes = { k:(ls[&#39;k&#39;],ls[&#39;w&#39;],ls[&#39;h&#39;]) for k,ls in shape_dict[&#39;layer_shapes&#39;].items() }
-  else:
-    raise NotADirectoryError(f&#34;mlmodelc = &#39;{mlmodelc}&#39;&#34;)
-  return shapes</code></pre>
+<pre><code class="python">def is_imgfile(f:Upath)-&gt;bool:
+  &#34;&#34;&#34;True if the file ends in &#39;jpg&#39; or &#39;png&#39; &#34;&#34;&#34;
+  f = Path(f)
+  return f.is_file() and f.suffix in [&#39;.jpg&#39;,&#39;.png&#39;,&#39;jpeg&#39;]</code></pre>
 </details>
 </dd>
 <dt id="coreml_help.main"><code class="name flex">
@@ -1020,331 +869,6 @@ representing the output shape of that layer.</p>
 <summary>Source code</summary>
 <pre><code class="python">def main():
   print(&#34;\ncoreml help functions loaded&#34;)</code></pre>
-</details>
-</dd>
-<dt id="coreml_help.norm_for_imagenet"><code class="name flex">
-<span>def <span class="ident">norm_for_imagenet</span></span>(<span>img)</span>
-</code></dt>
-<dd>
-<section class="desc"><p>Normalize an image using ImageNet values for mean and standard deviation.</p>
-<p>For each pixel in each channel, scale to the interval [0.0, 1.0] and then
-normalize using the mean and standard deviation from ImageNet.
-The input values are assumed to range from 0-255,
-input type is assumed to be an ndarray,
-or an image format that can be converted to an ndarray.
-Here is the formula:</p>
-<pre><code>normalized_value = (value/255.0 - mean)/stddev
-
-mean = [0.485, 0.456, 0.406]
-std  = [0.229, 0.224, 0.225]
-</code></pre>
-<h2 id="args">Args</h2>
-<p>img (Union[ndarray, Image.Image]):
-Image data with values between 0-255.
-If not an ndarray, must be convertible to one.
-Shape must be either (3,<em>,</em>) or (<em>,</em>,3)</p>
-<h2 id="return">Return</h2>
-<p>Normalized image data as an ndarray[float32]</p>
-<h2 id="raises">Raises</h2>
-<dl>
-<dt><strong><code>ValueError</code></strong></dt>
-<dd>If image shape is not (3,<em>,</em>) or (<em>,</em>,3), or number of dimensions is not 3</dd>
-</dl></section>
-<details class="source">
-<summary>Source code</summary>
-<pre><code class="python">def norm_for_imagenet( img:uimage )-&gt;ndarray:
-  &#34;&#34;&#34;
-  Normalize an image using ImageNet values for mean and standard deviation.
-
-  For each pixel in each channel, scale to the interval [0.0, 1.0] and then
-  normalize using the mean and standard deviation from ImageNet.
-  The input values are assumed to range from 0-255,
-  input type is assumed to be an ndarray,
-  or an image format that can be converted to an ndarray.
-  Here is the formula:
-
-      normalized_value = (value/255.0 - mean)/stddev
-
-      mean = [0.485, 0.456, 0.406]
-      std  = [0.229, 0.224, 0.225]
-
-  Args:
-    img (Union[ndarray, Image.Image]):
-      Image data with values between 0-255.
-      If not an ndarray, must be convertible to one.
-      Shape must be either (3,_,_) or (_,_,3)
-
-  Return:
-    Normalized image data as an ndarray[float32]
-
-  Raises:
-    ValueError: If image shape is not (3,_,_) or (_,_,3), or number of dimensions is not 3
-
-  &#34;&#34;&#34;
-  img = np.array(img)
-  if img.ndim != 3 : raise ValueError(f&#34;Image has {img.ndim} dimensions, expected 3&#34;)
-
-  # Mean and Stddev for image net
-  mean  = imagenet.mean
-  std   = imagenet.std
-
-  shape = img.shape
-  nimg  = np.zeros(shape).astype(&#39;float32&#39;)
-
-  # for each pixel in each channel, divide the value by 255 to get value between [0, 1] and then normalize
-  if shape[0] == 3:
-    for i in range(3): nimg[i, :, :] = (img[i, :, :] / 255.0 - mean[i]) / std[i]
-  elif shape[2] == 3:
-    for i in range(3): nimg[:, :, i] = (img[:, :, i] / 255.0 - mean[i]) / std[i]
-  else:
-    raise ValueError(f&#34;Image shape is {shape}, expected (3,_,_) or (_,_,3)&#34;)
-
-  return nimg</code></pre>
-</details>
-</dd>
-<dt id="coreml_help.pred_for_coreml"><code class="name flex">
-<span>def <span class="ident">pred_for_coreml</span></span>(<span>model, img, n_top=3, in_name='image', out_name='classLabelProbs')</span>
-</code></dt>
-<dd>
-<section class="desc"><p>Run a native CoreML Classifier and return the top results.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt>model (object) : the coreml model to use for the prediction</dt>
-<dt><strong><code>in_name</code></strong> :&ensp;<code>str</code></dt>
-<dd>Starting Input Layer name</dd>
-<dt><strong><code>out_name</code></strong> :&ensp;<code>str</code></dt>
-<dd>Final Output Layer name</dd>
-<dt><strong><code>img</code></strong> :&ensp;<code>Image.Image</code></dt>
-<dd>fitted image to use for test</dd>
-<dt><strong><code>n_top</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of top values to return (default 3)</dd>
-</dl>
-<h2 id="return">Return</h2>
-<p>dict with four items:</p>
-<ul>
-<li>topI [ Indexes to top probabilities ], from argsort</li>
-<li>topP [ Top probabilities ]</li>
-<li>topL [ Top Labels ] or [] if labels=None</li>
-<li>topRes [ Top Labels and probabilities as formatted strings ] or [] if labels=None</li>
-</ul></section>
-<details class="source">
-<summary>Source code</summary>
-<pre><code class="python">def pred_for_coreml(model, img, n_top=3, in_name=&#39;image&#39;, out_name=&#39;classLabelProbs&#39;):
-  &#34;&#34;&#34;
-  Run a native CoreML Classifier and return the top results.
-
-  Args:
-    model (object) : the coreml model to use for the prediction
-    in_name (str): Starting Input Layer name
-    out_name (str): Final Output Layer name
-    img (Image.Image): fitted image to use for test
-    n_top (int): Number of top values to return (default 3)
-
-  Return:
-    dict with four items:
-
-      - topI [ Indexes to top probabilities ], from argsort
-      - topP [ Top probabilities ]
-      - topL [ Top Labels ] or [] if labels=None
-      - topRes [ Top Labels and probabilities as formatted strings ] or [] if labels=None
-
-  &#34;&#34;&#34;
-  topI, topP, topL, topRes = [0], [0.00], [&#34;No Results&#34;], [&#34;No Results&#34;]
-
-  try:
-    y = model.predict({in_name:img}, usesCPUOnly=True)
-
-  except Exception as e :
-    topRes[0] = f&#34;No Results; Exception: {e}&#34;
-    print(&#39;Exception:&#39;,e)
-
-  else:
-    pdict  = y[out_name]
-    prob   = np.array([v for v in pdict.values()])
-    labels = np.array([k for k in pdict.keys()])
-    topI   = np.argsort(prob)[:-(n_top+1):-1]
-    topP   = [prob[i] * 100 for i in topI],
-    topL   = [labels[i] for i in topI],
-    topRes = [f&#34;{labels[i][:30]:32} {100 * prob[i]:.4g}&#34; for i in topI]
-
-  return dict( topI=topI, topP=topP, topL=topL, topRes=topRes)</code></pre>
-</details>
-</dd>
-<dt id="coreml_help.pred_for_o2c"><code class="name flex">
-<span>def <span class="ident">pred_for_o2c</span></span>(<span>model, img, n_top=3, in_name='data', out_name='resnetv24_dense0_fwd', labels=None)</span>
-</code></dt>
-<dd>
-<section class="desc"><p>Run the CoreML Classifier model that was converted from ONNX and return the top results.</p>
-<p>This function converts the output from the final layer to a list of probabilities,
-then extracts the top items and associated labels.</p>
-<p>This step is needed because the ONNX Resnet50 model does not contain a final softmax layer, and the
-conversion to CoreML does not add one. (The native CoreML Resnet50 does have a softmax layer)</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>model</code></strong> :&ensp;<code>object</code></dt>
-<dd>The CoreML model to use for inference</dd>
-<dt><strong><code>img</code></strong> :&ensp;<code>Image.Image</code></dt>
-<dd>The image to process. Expected to be an image with values 0-255</dd>
-<dt><strong><code>in_name</code></strong> :&ensp;<code>str</code></dt>
-<dd>Starting Layer Input name</dd>
-<dt><strong><code>out_name</code></strong> :&ensp;<code>str</code></dt>
-<dd>Final Layer Output name</dd>
-<dt><strong><code>n_top</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of top values to return (default 3)</dd>
-<dt><strong><code>labels</code></strong> :&ensp;[<code>str</code>]</dt>
-<dd>Class Labels for output</dd>
-</dl>
-<h2 id="return">Return</h2>
-<p>dict with four items:</p>
-<ul>
-<li>topI [ Indexes to top probabilities ], from np.argsort</li>
-<li>topP [ Top probabilities ]</li>
-<li>topL [ Top Labels ]</li>
-<li>topRes [ Top Labels and probabilities as formatted strings ], or [] if labels=None</li>
-</ul></section>
-<details class="source">
-<summary>Source code</summary>
-<pre><code class="python">def pred_for_o2c(model, img, n_top=3, in_name=&#39;data&#39;, out_name=&#39;resnetv24_dense0_fwd&#39;, labels=None):
-  &#34;&#34;&#34;
-  Run the CoreML Classifier model that was converted from ONNX and return the top results.
-
-  This function converts the output from the final layer to a list of probabilities,
-  then extracts the top items and associated labels.
-
-  This step is needed because the ONNX Resnet50 model does not contain a final softmax layer, and the
-  conversion to CoreML does not add one. (The native CoreML Resnet50 does have a softmax layer)
-
-  Args:
-    model (object): The CoreML model to use for inference
-    img (Image.Image): The image to process. Expected to be an image with values 0-255
-    in_name (str): Starting Layer Input name
-    out_name (str): Final Layer Output name
-    n_top (int): Number of top values to return (default 3)
-    labels ([str]): Class Labels for output
-
-  Return:
-    dict with four items:
-
-      - topI [ Indexes to top probabilities ], from np.argsort
-      - topP [ Top probabilities ]
-      - topL [ Top Labels ]
-      - topRes [ Top Labels and probabilities as formatted strings ], or [] if labels=None
-  &#34;&#34;&#34;
-
-  topI, topP, topL, topRes = [0], [0.00], [&#34;No Results&#34;], [&#34;No Results&#34;]
-  try:
-    y = model.predict({in_name:img}, usesCPUOnly=True)
-
-  except Exception as e :
-    topRes[0] = f&#34;No Results; Exception: {e}&#34;
-    print(&#39;Exception:&#39;,e)
-
-  else:
-    r    = y[out_name]
-    res  = np.squeeze(np.array(r))
-    prob = softmax(res)
-    topI = np.argsort(prob)[:-(n_top+1):-1]
-    topP = [ prob[i]*100 for i in topI ],
-    topL = [ labels[i]   for i in topI ],
-    topRes = [f&#34;{labels[i][:30]:32} {100 * prob[i]:.4g}&#34; for i in topI]
-    #
-  return dict(topI=topI , topP=topP, topL=topL, topRes=topRes)</code></pre>
-</details>
-</dd>
-<dt id="coreml_help.pred_for_onnx"><code class="name flex">
-<span>def <span class="ident">pred_for_onnx</span></span>(<span>sess, img, n_top=3, labels=None)</span>
-</code></dt>
-<dd>
-<section class="desc"><p>Run the ONNX Classifier model and return the top results.</p>
-<p>This function</p>
-<ul>
-<li>normalizes the image data,</li>
-<li>if needed, massages the data to a shape of (3,<em>,</em>)</li>
-<li>runs the model using <code>onnxruntime</code></li>
-<li>converts the output from the final layer to a list of probabilities,</li>
-<li>extracts the top items and associated labels.</li>
-</ul>
-<h2 id="args">Args</h2>
-<dl>
-<dt>sess (object) : the ONNX run-time session(model) to use for prediction</dt>
-<dt><strong><code>img</code></strong> :&ensp;<code>Union</code>[<code>ndarray</code>,<code>Image.Image</code>]</dt>
-<dd>image or image data to use for test</dd>
-<dt><strong><code>n_top</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of top values to return (default 4)</dd>
-<dt><strong><code>labels</code></strong> :&ensp;[<code>str</code>]</dt>
-<dd>Class labels for output</dd>
-</dl>
-<h2 id="return">Return</h2>
-<p>Dict with four items:</p>
-<ul>
-<li>topI [ Indexes to top probabilities ], from argsort</li>
-<li>topP [ Top probabilities ]</li>
-<li>topL [ Top Labels ]</li>
-<li>topRes [ Top Labels and probabilities as formatted strings ], or [] if labels=None</li>
-</ul></section>
-<details class="source">
-<summary>Source code</summary>
-<pre><code class="python">def pred_for_onnx(sess, img:uimage, n_top=3, labels=None):
-  &#34;&#34;&#34;
-  Run the ONNX Classifier model and return the top results.
-
-  This function
-
-    - normalizes the image data,
-    - if needed, massages the data to a shape of (3,_,_)
-    - runs the model using `onnxruntime`
-    - converts the output from the final layer to a list of probabilities,
-    - extracts the top items and associated labels.
-
-  Args:
-    sess (object) : the ONNX run-time session(model) to use for prediction
-    img (Union[ndarray,Image.Image]):  image or image data to use for test
-    n_top (int): Number of top values to return (default 4)
-    labels ([str]): Class labels for output
-
-  Return:
-    Dict with four items:
-
-      - topI [ Indexes to top probabilities ], from argsort
-      - topP [ Top probabilities ]
-      - topL [ Top Labels ]
-      - topRes [ Top Labels and probabilities as formatted strings ], or [] if labels=None
-  &#34;&#34;&#34;
-  # Use the image to generate acceptable input for the model
-  # - move axes if needed, normalize, add a dimension to make it (1,3,224,224)
-  nimg  = np.array(img)
-  nimg2 = np.moveaxis(nimg,[0,1,2],[1,2,0]) if nimg.shape[2] == 3 else nimg
-  topI, topP, topL, topRes = [0], [0.00], [&#34;No Results&#34;], [&#34;No Results&#34;]
-
-  try: pimg  = norm_for_imagenet(nimg2)
-  except Exception as e :
-    print(&#39;Exception:&#39;,e)
-    return dict(topI=topI, topP=topP, topL=topL, topRes=topRes)
-
-  x     = np.array([pimg])
-  # Get input and output names for the model
-  input0 = sess.get_inputs()[0]
-  output = sess.get_outputs()[0]
-  input0_name = input0.name
-  output_name = output.name
-
-  # Run the model
-  try:
-    r = sess.run([output_name], {input0_name: x})
-
-  except Exception as e :
-    topRes[0] = f&#34;No Results; Exception: {e}&#34;
-    print(&#39;Exception:&#39;,e)
-
-  else:  # Get predictions from the results
-    res  = np.squeeze(np.array(r))  # eliminate dimensions w/ len=1 , e.g. from (1,1,1000) --&gt; (1000,)
-    prob = softmax(res)
-    topI = np.argsort(prob)[:-(n_top+1):-1]
-    topP = [ prob[i]*100 for i in topI ],
-    topL = [ labels[i]   for i in topI ],
-    topRes = [f&#34;{labels[i][:30]:32} {100 * prob[i]:.4g}&#34; for i in topI]
-
-  return dict(topI=topI, topP=topP, topL=topL, topRes=topRes)</code></pre>
 </details>
 </dd>
 <dt id="coreml_help.show_head"><code class="name flex">
@@ -1383,47 +907,6 @@ conversion to CoreML does not add one. (The native CoreML Resnet50 does have a s
   show_nn( cmb, -3)</code></pre>
 </details>
 </dd>
-<dt id="coreml_help.softmax"><code class="name flex">
-<span>def <span class="ident">softmax</span></span>(<span>x)</span>
-</code></dt>
-<dd>
-<section class="desc"><p>Scale values to be between 0.0 - 1.0 so they can be used as probabilities.
-Formula is:</p>
-<pre><code>exp(x)/sum(exp(x))
-</code></pre>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>x</code></strong> :&ensp;<code>Union</code>[<code>List</code>,<code>ndarray</code>]</dt>
-<dd>Values on which to calculate the softmax.
-Should be ndarray or convertible to an ndarray</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><a title="coreml_help.softmax" href="#coreml_help.softmax"><code>softmax()</code></a> <code>as</code> <code>ndarray</code></dt>
-<dd>&nbsp;</dd>
-</dl></section>
-<details class="source">
-<summary>Source code</summary>
-<pre><code class="python">def softmax( x:uarray )-&gt;ndarray:
-  &#34;&#34;&#34;
-  Scale values to be between 0.0 - 1.0 so they can be used as probabilities.
-  Formula is:
-
-      exp(x)/sum(exp(x))
-
-  Args:
-    x (Union[List,ndarray]): Values on which to calculate the softmax.
-                             Should be ndarray or convertible to an ndarray
-
-  Returns:
-    softmax as ndarray
-
-  &#34;&#34;&#34;
-
-  np_exp = np.exp(np.array(x))
-  return np_exp / np.sum(np_exp, axis=0)</code></pre>
-</details>
-</dd>
 </dl>
 </section>
 <section>
@@ -1431,55 +914,331 @@ Should be ndarray or convertible to an ndarray</dd>
 <dl>
 <dt id="coreml_help.CoremlBrowser"><code class="flex name class">
 <span>class <span class="ident">CoremlBrowser</span></span>
-<span>(</span><span>mlmodel_file)</span>
+<span>(</span><span>mlmodel)</span>
 </code></dt>
 <dd>
-<section class="desc"><p>Encapsulates routines to browse and edit CoreML Models</p></section>
+<section class="desc"><p>Class to browse and repair CoreML models.</p>
+<p>To <strong>use</strong>, initialize a browser instance using the '.mlmodel' file
+(Also called the <em>spec</em> file or the <em>protobuf spec</em> file).</p>
+<pre><code>from coreml_help import CoremlBrowser
+cmb = CoremlBrowser(" ... a .mlmodel file " )
+</code></pre>
+<p>Then in the browser object following will be <strong>initialized</strong>:</p>
+<pre><code>cmb.spec        # The *protobuf spec*
+cmb.nn          # The neural network object
+cmb.layers      # The neural network layers list
+cmb.layer_dict  # maps layer names to layer indexes
+cmb.layer_count # the count of nn layers
+cmb.shaper      # The shape inference object for this model
+</code></pre>
+<p>To <strong>show</strong> layers 10 - 15 (including shapes)</p>
+<pre><code>cmb.show_nn(10,5)
+</code></pre>
+<p>To <strong>delete</strong> the layers named "conv_10" and "relu_14"</p>
+<pre><code>cmb.delete_layers(['conv_10', 'relu_14'])
+</code></pre>
+<p>The principal inspection and "model surgery" methods are</p>
+<ul>
+<li><a title="coreml_help.CoremlBrowser.show_nn" href="#coreml_help.CoremlBrowser.show_nn"><code>CoremlBrowser.show_nn()</code></a>
+Show a summary of neural network layers by index or name</li>
+<li><a title="coreml_help.CoremlBrowser.connect_layers" href="#coreml_help.CoremlBrowser.connect_layers"><code>CoremlBrowser.connect_layers()</code></a>
+Connect the output of one layer to the input of another</li>
+<li><a title="coreml_help.CoremlBrowser.delete_layers" href="#coreml_help.CoremlBrowser.delete_layers"><code>CoremlBrowser.delete_layers()</code></a>
+Delete CoreML NN layers by <em>name</em>.</li>
+</ul>
+<p>Associated Convenience Functions:</p>
+<ul>
+<li><a title="coreml_help.show_nn" href="#coreml_help.show_nn"><code>show_nn()</code></a>
+Show a summary of nn (Function equivalent of show_nn method)</li>
+<li><a title="coreml_help.show_head" href="#coreml_help.show_head"><code>show_head()</code></a></li>
+<li><a title="coreml_help.show_tail" href="#coreml_help.show_tail"><code>show_tail()</code></a>
+Convenience functions
+of
+method <a title="coreml_help.show_nn" href="#coreml_help.show_nn"><code>show_nn()</code></a></li>
+<li><a title="coreml_help.get_rand_images" href="#coreml_help.get_rand_images"><code>get_rand_images()</code></a>
+Return images (jpg and png) randomly sampled from child dirs.</li>
+</ul>
+<hr>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mlmodel</code></strong></dt>
+<dd>Either the path to the <code>protobuf</code> spec, or an extant <code>MLModel</code> object</dd>
+</dl></section>
 <details class="source">
 <summary>Source code</summary>
-<pre><code class="python">class CoremlBrowser(object):
+<pre><code class="python">class CoremlBrowser:
   &#34;&#34;&#34;
-  Encapsulates routines to browse and edit CoreML Models
+  Class to browse and repair CoreML models.
+
+  To **use**, initialize a browser instance using the &#39;.mlmodel&#39; file
+  (Also called the *spec* file or the *protobuf spec* file).
+
+      from coreml_help import CoremlBrowser
+      cmb = CoremlBrowser(&#34; ... a .mlmodel file &#34; )
+
+  Then in the browser object following will be **initialized**:
+
+      cmb.spec        # The *protobuf spec*
+      cmb.nn          # The neural network object
+      cmb.layers      # The neural network layers list
+      cmb.layer_dict  # maps layer names to layer indexes
+      cmb.layer_count # the count of nn layers
+      cmb.shaper      # The shape inference object for this model
+
+  To **show** layers 10 - 15 (including shapes)
+
+      cmb.show_nn(10,5)
+
+  To **delete** the layers named &#34;conv_10&#34; and &#34;relu_14&#34;
+
+      cmb.delete_layers([&#39;conv_10&#39;, &#39;relu_14&#39;])
+
+  The principal inspection and &#34;model surgery&#34; methods are
+
+    - `CoremlBrowser.show_nn`         Show a summary of neural network layers by index or name
+    - `CoremlBrowser.connect_layers`  Connect the output of one layer to the input of another
+    - `CoremlBrowser.delete_layers`   Delete CoreML NN layers by *name*.
+
+  Associated Convenience Functions:
+
+    - `show_nn`          Show a summary of nn (Function equivalent of show_nn method)
+    - `show_head`
+    - `show_tail`        Convenience functions  of  method `show_nn`
+    - `get_rand_images`  Return images (jpg and png) randomly sampled from child dirs.
+
+  -------
   &#34;&#34;&#34;
-  def __init__(self, mlmodel_file:upath):
-    self.mlmodel_path = Path(mlmodel_file)
-    &#34;&#34;&#34; Path to the mlmodel file&#34;&#34;&#34;
-    self.spec   = cu.load_spec(self.mlmodel_path)
-    &#34;&#34;&#34; (Protobuf) spec for the model&#34;&#34;&#34;
-    self.shaper = cm.NeuralNetworkShaper(self.spec)
-    &#34;&#34;&#34; Shape inference object for this model&#34;&#34;&#34;
-    self.nn     = self.get_nn()
+
+  def __init__(self, mlmodel: Union[Upath, MLModel]):
+    &#34;&#34;&#34;
+
+    Args:
+      mlmodel: Either the path to the `protobuf` spec, or an extant `MLModel` object
+
+    &#34;&#34;&#34;
+    self.mlmodel = None
+    &#34;&#34;&#34; A MLModel object. The result of **compiling** the &#39;.mlmodel&#39; file &#34;&#34;&#34;
+    self.mlmodel_path = None
+    &#34;&#34;&#34; The full path of the &#39;.mlmodel&#39; file &#34;&#34;&#34;
+
+    if isinstance(mlmodel, MLModel):
+      self.mlmodel = mlmodel
+      self.mlmodel_path = None
+    elif isinstance(mlmodel, Path) or isinstance(mlmodel, str):
+      self.mlmodel_path = Path(mlmodel)
+      self.mlmodel = cm.MLModel(self.mlmodel_path.as_posix())
+    else:
+      raise TypeError(&#34;&#39;mlmodel is not a MLModel, a Path, or a file path string&#34;)
+
+    self.spec = self.mlmodel.get_spec()
+    &#34;&#34;&#34; (Protobuf) spec for the model. Also the result of *loading* the &#39;.mlmodel&#39; file &#34;&#34;&#34;
+    self.nn = self.get_nn()
     &#34;&#34;&#34; Neural network layers object&#34;&#34;&#34;
     self.layers = self.nn.layers
     &#34;&#34;&#34; Neural network layers&#34;&#34;&#34;
     self.layer_count = len(self.layers)
-    self.layer_dict = {layer.name:i for i,layer in enumerate(self.layers)}
+    &#34;&#34;&#34; NUmber  of layers&#34;&#34;&#34;
+    self.layer_dict = {layer.name: i for i, layer in enumerate(self.layers)}
     &#34;&#34;&#34; Maps a layer name to its index&#34;&#34;&#34;
     self.name_len_centile = int(np.percentile(np.array([len(l.name) for l in self.layers]), 90))
+    &#34;&#34;&#34; 90% of the layer names are equal to or shorter than this value&#34;&#34;&#34;
+    self.shaper = None
+    &#34;&#34;&#34; Shape inference object for this model&#34;&#34;&#34;
+    self.layer_shapes = None
+    &#34;&#34;&#34; Shape dictionary for this model&#34;&#34;&#34;
+    self.init_shapes()
+
+
+  def compile_coreml(self)-&gt;str:
+    &#34;&#34;&#34;
+    Compile the protobuf spec using the OSX `coremlcompiler` application.
+    Used to capture shape information when instantiating a CoremlBrowser.
+
+    Uses:
+      `CoremlBrowser.spec`, the (Protobuf) spec for the model.
+
+    Returns:
+      `stdout` (str): The *stdout* from the compiler,
+      which (should) contain shape info, or an empty string.
+
+    Note:
+      The *OSX shell command* to run the compiler is
+
+      `xcrun coremlcompiler compile rn50.mlmodel out &gt; rn50-compile-out.txt`
+
+    &#34;&#34;&#34;
+    from sys import platform
+    from subprocess import run, CompletedProcess, PIPE
+
+    if platform != &#39;darwin&#39;: return &#39;&#39;
+    compile_cmd = [&#39;xcrun&#39;, &#39;coremlcompiler&#39;, &#39;compile&#39;, self.mlmodel_path, &#39;.&#39;]
+    compilation: CompletedProcess = run(compile_cmd, stdout=PIPE, stderr=PIPE, universal_newlines=True)
+    return compilation.stdout if compilation.returncode == 0 else &#39;&#39;
+
+
+  def extract_shapes(self, comp_output:str )-&gt;dict:
+    &#34;&#34;&#34;
+    Extract the shape of the network layers from the mlmodel compilation output file.
+
+    Args:
+      comp_output: The text output captured from compiling the .mlmodel file.
+
+    Returns a dictionary of lists keyed by layer name, each list is a triplet [C,H,W]
+    representing the output shape of that layer.
+
+        `{ layer0_name:[C,H,W], layer1_name:[C,H,W] .. }`
+
+    Notes:
+      Here is an sample line from the compiler output
+
+    `
+    Neural Network compiler 174: 320 , name = 507, output shape : (C,H,W) = (4096, 1, 1)
+    `
+    &#34;&#34;&#34;
+    if comp_output is None or  len(comp_output) &lt; 20 :
+      print(f&#34;Compilation output string is None or too small&#34;,f&#34;compiliation output: {comp_output}&#34; )
+      return None
+
+    # Used to extract name and shapes from lines in the out_file
+
+    import re
+    name  = re.compile(r&#34;name =\s+([/\w]+),&#34;)
+    shape = re.compile(r&#34;=\s+\((-?\d+),\s+(-?\d+),\s+(-?\d+)\)&#34;)
+    lines = re.split(&#34;\n&#34;,comp_output)
+
+    # The comprehension below pulls name and shapes from each line in the array
+    # and outputs them as a dictionary.
+
+    layer_shapes = \
+      {n.group(1): [s.group(1), s.group(2), s.group(3)]
+       for n, s in [(name.search(ln), shape.search(ln)) for ln in lines] if n and s }
+
+    # First line is a header
+    # Second line (index 1) is input name and is a different format - just reported, not compiled
+
+    line1 = lines[1]
+    name1 = re.search(r&#39;^\w+&#39;, line1).group(0)
+    s     = shape.search(line1)
+    layer_shapes[name1] = [s.group(1), s.group(2), s.group(3)]
+
+    if len(layer_shapes) == 0:
+      raise ValueError(f&#34;Nothing found, check contents of compilation output&#34;)
+
+    return layer_shapes
+
+
+  def init_shapes(self, use_shaper=False):
+    &#34;&#34;&#34;
+    Get shapes for the layers in the model. Compiles model to get shapes.
+
+    Args:
+      use_shaper (bool):
+        False =&gt; Ignore the shaper object, try to compile model to get shapes
+        True  =&gt; Use the shaper object if available
+
+    Returns:
+      True for success =&gt; the object variable `layer_shapes` contains a valid shape dictionary
+      False for failure
+
+    The`NeuralNetworkShaper` object crashes python sometimes
+    (prob. because the network is invalid in some way),
+    - so it is not preferred.
+    &#34;&#34;&#34;
+    self.layer_shapes = None
+    self.shaper       = None
+
+    if use_shaper:
+      try:
+        self.shaper = cm.NeuralNetworkShaper(self.spec)
+      except Exception as e :
+        self.shaper = None
+        shaper_exception = e
+        print(&#34;&#39;NeuralNetworkShaper&#39; reports &#34;, shaper_exception)
+
+    if self.shaper is None:
+      comp_out = self.compile_coreml()
+      self.layer_shapes = self.extract_shapes(comp_out)
+
+    if self.layer_shapes is not None:
+      print(f&#34;Using shape info from compilation output&#34;)
+
+    if self.shaper is None and self.layer_shapes is None:
+      print(&#34;  Can&#39;t infer shapes because &#39;NeuralNetworkShaper&#39; is not available&#34;)
+      print(&#34;  and could not compile the model to generate shapes&#34;)
+      print()
+
+
+
 
   def _repr(self):
     &#34;&#34;&#34;
-    Show something more useful than &#34;object&#34; when called
+    Show the path, layer count and description for this model.
+    (goal is to something more useful than &#34;object&#34; when called)
     &#34;&#34;&#34;
     all_text = &#39;&#39;
-    for n in (&#39;mlmodel_path&#39;,&#39;layer_count&#39;,&#39;spec.description&#39;):
+
+    for n in (&#39;mlmodel_path&#39;,&#39;layer_count&#39;):
       v = eval(f&#34;self.{n}&#34;)
-      nv_text = f&#34;{n:17} = {v}&#34;
+      nv_text = f&#34;{n:17.17} = {v}&#34;
       print(nv_text)
       all_text.join(nv_text)
+
+    if self.layer_shapes is not None:
+      nv_text = f&#34;layer_shapes_count = {len(self.layer_shapes)}&#34;
+      print(nv_text)
+      all_text.join(nv_text)
+
+    # Show this last
+    v = self.spec.description
+    nv_text = f&#34;\n{n:17.17} = {v}&#34;
+    print(nv_text)
+    all_text.join(nv_text)
+
     return all_text
 
 
   def __repr__(self): return self._repr()
 
 
+  def get_shape_for(self, name:str) -&gt; Union[list,dict,None]:
+    &#34;&#34;&#34;
+    Try to get the shape for layer `name`
+
+    Args:
+      name (str): The name of the layer
+
+    Returns (Union[dict, str]):
+      The shape dict object from the shape dictionary if it exists, or
+      The shape dict returned by the shaper object if it exists, or
+      The text of the exception generated by the shaper object, or
+      None
+    &#34;&#34;&#34;
+    res = None
+
+    if self.layer_shapes is not None:
+      res = self.layer_shapes.get(name)
+
+    if res is None and self.shaper is not None:
+      try: res = self.shaper.shape(name)
+      except IndexError as e: pass
+
+    return res
+
+  def get_layer_name(self, name:str):
+    &#34;&#34;&#34;Locate and return a nn layer using its name&#34;&#34;&#34;
+    return self.layers[self.layer_dict[name]]
+
+  def get_layer_num(self, idx:int):
+    &#34;&#34;&#34;Locate and return a nn layer using its index value&#34;&#34;&#34;
+    return self.layers[idx]
+
   def get_nn(self) -&gt; Model_pb2.Model.neuralNetwork:
     &#34;&#34;&#34;
     Get the layers object for a CoreML neural network.
 
-    Args:
-      spec (Model): The `protobuf` spec. for this CoreML model.
-                    Returned by `coremltools.util.load_spec(&#34;file.mlmodel&#34;)`
+    Uses:
+      self.spec (Model): The `protobuf` spec. for this CoreML model.
+                Returned by `coremltools.util.load_spec(&#34;file.mlmodel&#34;)`
 
     Return:
       The neural network layers of the model or an Attribute Error.
@@ -1511,29 +1270,29 @@ Should be ndarray or convertible to an ndarray</dd>
 
   _ph = &#39;~&#39;  # Placeholder char(s) for strings below ...
   @staticmethod
-  def _tbd(self,l): return &#34;              - &#34;
+  def _tbd(self,l): return f&#34;{&#39;-&#39;:&gt;8} &#34;
   def _repf(self, rf): return str.join(&#39;x&#39;, [str(f) for f in rf]) if len(rf) != 0 else self._ph
-  @staticmethod
-  def _fmt_add(self,l): return f&#34;add     &#34;
-  def _fmt_act(self,l): return f&#34;{l.activation.WhichOneof(&#39;NonlinearityType&#39;):8}&#34;
-  def _fmt_pool(self, l): return f&#34;pool   &#34; + f&#34;          sz:{self._repf(l.pooling.kernelSize)}  str:{self._repf(l.pooling.stride)}&#34;
-  def _fmt_concat(self, l): return f&#34;concat  &#34;
-  def _fmt_reshape(self, l): return f&#34;reshape          target:{l.reshape.targetShape}&#34;
+  #
+  def _fmt_act(self,l):      return f&#34;{l.activation.WhichOneof(&#39;NonlinearityType&#39;):8} &#34;
+  def _fmt_pool(self, l):    return f&#34;{&#39;pool&#39;:8} {_sp:9}  sz:{self._repf(l.pooling.kernelSize)}  str:{self._repf(l.pooling.stride)}&#34;
+  def _fmt_add(self, l):     return f&#34;{&#39;add&#39;:8} &#34;
+  def _fmt_concat(self, l):  return f&#34;{&#39;concat&#39;:8} &#34;
+  def _fmt_reshape(self, l): return f&#34;{&#39;reshape&#39;:8} {_sp:9}  target:{l.reshape.targetShape}&#34;
 
   def _fmt_bn(self, l):
     bn  = l.batchnorm
     bc  = f&#34;{bn.channels}&#34;
-    return f&#34;bnorm  &#34; + f&#34;{bc:9} ep:{bn.epsilon:.3e}  wc:{len(bn.beta.floatValue) + len(bn.gamma.floatValue)}&#34;
+    return f&#34;{&#39;bnorm&#39;:8} {bc:9}  ep:{bn.epsilon:.3e}  wc:{len(bn.beta.floatValue) + len(bn.gamma.floatValue)}&#34;
 
   def _fmt_innerp(self, l):
     c   = l.innerProduct
     ic  = f&#34;{c.outputChannels}x{c.inputChannels}&#34;
-    return f&#34;innerp &#34; + f&#34;{ic:9} wc:{len(c.weights.floatValue)}&#34;
+    return f&#34;{&#39;innerp&#39;:8} {ic:9}  wc:{len(c.weights.floatValue)}&#34;
 
   def _fmt_conv(self, l):
     c     = l.convolution
     kc    = f&#34;{c.outputChannels}x{c.kernelChannels}&#34;
-    conv1 = f&#34;conv   &#34; + f&#34;{kc:9} sz:{self._repf(c.kernelSize)}  str:{self._repf(c.stride)}&#34;
+    conv1 = f&#34;{&#39;conv&#39;:8} {kc:9}  sz:{self._repf(c.kernelSize)}  str:{self._repf(c.stride)}&#34;
     conv2 = f&#34;  dil:{self._repf(c.dilationFactor)}  wc:{len(c.weights.floatValue)}&#34;
     return conv1 + conv2
 
@@ -1544,17 +1303,27 @@ Should be ndarray or convertible to an ndarray</dd>
                     pooling=_fmt_pool, activation=_fmt_act,
                     add=_fmt_add, concat=_fmt_concat)
 
+
   def _fmt_shape(self, name: str) -&gt; str:
     &#34;&#34;&#34;
     Format the shape line
     &#34;&#34;&#34;
-    try:
-      s = self.shaper.shape(name)
-    except IndexError as e:
-      line = f&#34;      - {e} - &#34;
+    s = self.get_shape_for(name)
+
+    if s is None : return f&#34;        -   -   - &#34;
+
+    if type(s) is dict:
+      if &#39;k&#39; in s.keys():
+        line = f&#34;k h w n: {s[&#39;k&#39;]:2} {s[&#39;h&#39;]:2} {s[&#39;w&#39;]:2} {s[&#39;n&#39;]:2}&#34;
+      else:
+        line = f&#34; c h w:  {s[&#39;C&#39;]:2} {s[&#39;H&#39;]:2} {s[&#39;W&#39;]:2}   sb:{s[&#39;S&#39;]}{s[&#39;B&#39;]:}&#34;
+    if type(s) is list:
+        line = f&#34; c h w:  {s[0]:2} {s[1]:2} {s[2]:2}&#34;
     else:
-      line = f&#34;CHW: {s[&#39;C&#39;]} {s[&#39;H&#39;]} {s[&#39;W&#39;]}   SB:{s[&#39;S&#39;]}{s[&#39;B&#39;]}&#34;
+      line   = f&#34; c h w:  {s}&#34;
+
     return line
+
 
   def _fmt_for_one_line(self, layer, li: int) -&gt; str:
     &#34;&#34;&#34;
@@ -1582,11 +1351,12 @@ Should be ndarray or convertible to an ndarray</dd>
     layer_name  = format(f&#34;{layer.name}&#34;, f&#34;&lt;{name_len}s&#34;)
     inputs      = format(f&#34;[{str.join(&#39;, &#39;, layer.input)}]&#34;, f&#34;&lt;{w_inputs}s&#34;)
     outputs     = format(f&#34;[{str.join(&#39;, &#39;, layer.output)}]&#34;, f&#34;&lt;{w_outputs}s&#34;)
-    shout       = self._fmt_shape(layer.name)
+    out_shape       = self._fmt_shape(layer.name)
 
     # Assemble the line to print
 
-    return f&#34;{li:3} {layer_name:5}  {inputs} {outputs} {shout:&gt;13}  {_fmt_type(self,layer)}&#34;
+    return f&#34;{li:3} {layer_name:8}  {inputs:10} {outputs:10} {out_shape:&gt;13.16}  {_fmt_type(self,layer)}&#34;
+
 
   def _fmt_for_two_lines(self,layer, li: int) -&gt; str:
     &#34;&#34;&#34;
@@ -1611,14 +1381,21 @@ Should be ndarray or convertible to an ndarray</dd>
     layer_name = format(f&#34;{layer.name}&#34;, f&#34;&lt;{name_len}s&#34;)
     inputs     = format(f&#34;[{str.join(&#39;, &#39;, layer.input)}]&#34;, f&#34;&lt;{w_inputs}s&#34;)
     outputs    = format(f&#34;[{str.join(&#39;, &#39;, layer.output)}]&#34;, f&#34;&lt;{w_outputs}s&#34;)
-    shout      = self._fmt_shape(layer.name)
+    out_shape  = self._fmt_shape(layer.name)
 
     # Assemble the line(s) to print
 
-    line1     = f&#34;{li:3} {layer_name:32} {inputs :&lt;24}  {_fmt_type(self,layer)}&#34;
-    line2     = f&#34;{sp:3} {sp        :32} {outputs:&lt;24}  {shout}&#34;
+    line1     = f&#34;{li:3} {layer_name:24.24} {inputs :&lt;30.48}  {_fmt_type(self,layer)}&#34;
+    line2     = f&#34;{sp:3} {sp        :24.24} {outputs:&lt;30.30}  {out_shape}&#34;
 
     return line1 + &#34;\n&#34; + line2 + &#34;\n&#34;
+
+
+  # So that these can be changed dynamically, for now
+  sp = &#34;   &#34; # formatting spacer
+  _one_line_heading = f&#34;Lay Name{ sp:6}In{sp:9}Out{sp:9}Shapes{sp:10}Type,Chan(s){sp:9}Size,Stride,Dilation,#Wts&#34;
+  _two_line_heading = f&#34;Lay Name{sp:21}In/Out{sp:26}Type,Chan(s)/Shape{sp:3}Size,Stride,Dilation,#Wts&#34;
+  #_two_line_heading = f&#34;Lay Name{sp:20}In/Out{sp:30}Type,Chan(s){sp:7}Size,Stride,Dilation,#Wts&#34;
 
 
   def show_nn(self,  start:Union[int,str]=0, count=4,  break_len=8 ) -&gt; None:
@@ -1649,17 +1426,13 @@ Should be ndarray or convertible to an ndarray</dd>
     if start &lt; 0                   : count = 3; start = nn_count + start
     if start + count &gt; nn_count    : start = nn_count - count
 
-    sp = &#34;   &#34; # formatting spacer
-    one_line_heading = f&#34;Lay Name{ sp:4}In{sp:8}Out{sp:6}Shapes{sp:7}Type,Chan(s){sp:7}Size,Stride,Dilation,#Wts&#34;
-    two_line_heading = f&#34;Lay Name{sp:32}In/Out{sp:24}Type,Chan(s){sp:7}Size,Stride,Dilation,#Wts&#34;
-
     # If &gt;= 90% layer names are &#34;short&#34;, print layer on one line, otherwise use two
     if self.name_len_centile &lt;= break_len:
       format_layer = self._fmt_for_one_line
-      heading      = one_line_heading
+      heading      = self._one_line_heading
     else:
       format_layer = self._fmt_for_two_lines
-      heading      = two_line_heading
+      heading      = self._two_line_heading
 
     print(heading)
 
@@ -1672,8 +1445,8 @@ Should be ndarray or convertible to an ndarray</dd>
       li += 1
 
 
-  &#34;&#34;&#34;
-  CoreML Model Surgery - connect and delete layers
+  &#34;&#34;&#34; 
+  CoreML Model Surgery - connect and delete layers 
   &#34;&#34;&#34;
 
   def connect_layers(self, from_:str, to_:str, replace=True)-&gt;namedtuple:
@@ -1682,8 +1455,7 @@ Should be ndarray or convertible to an ndarray</dd>
 
     Layers are identified by name. An invalid layer name aborts any connection attempt.
     Note that when two layers are *connected*, only one layer is modified:
-    the only field that changes is the **to** layer&#39;s *input* field. Note also
-    that the  keyword arguments `from_` and `to_` are suffixed by underscores.
+    the only field that changes is the **to** layer&#39;s *input* field.
 
     Args:
       from_ (str): The name of the layer supplying the outputs
@@ -1691,45 +1463,40 @@ Should be ndarray or convertible to an ndarray</dd>
       to_ (str): The name of the layer receiving the `from` outputs.
                    This layer&#39;s `input` field is modified.
 
-      replace (bool): *True* (default) Replaces (overwrites)
-                  the &#39;to&#39; layer&#39;s input with the &#39;from&#39; layer&#39;s output.
-                  *False* appends the &#39;from&#39; layer&#39;s output to the the &#39;to&#39; layer&#39;s input.
+      replace (bool): *True* (default) **Replaces** (overwrites)
+                  the *to layer*&#39;s `input` with the *from layer*&#39;s `output`.
+                  *False* **appends** the *from layer*&#39;s `output` to the the *to layer*&#39;s `input`.
 
     Return:
       A named tuple describing the change (see examples that follow)
 
     Examples:
+      ```
+        cmb = CoremlBrowser( ... path to &#39;mlmodel&#39; file ...)
+        cmb.connect_layers(from_=&#39;conv336&#39;, to_=&#39;bnorm409&#39;)
+      ```
+      returns:
+      ```
+        ( changed_layer = &#39;bnorm409&#39;,
+          input_before  = [&#39;concat408_output&#39;, &#39;add400_output&#39;],
+          input_after   = [&#39;conv336_output&#39;] )
 
-          cmb = CoremlBrowser( ... path to &#39;mlmodel&#39; file ...)
-
-          cmb.connect_layers(from_=&#39;conv336&#39;, to_=&#39;bnorm409&#39;)
-
+         connect_layers(nn, from_=&#39;conv100&#39;, to_=&#39;concat408&#39;)
+      ```
       returns:
 
-          ( changed_layer = &#39;bnorm409&#39;,
-            input_before  = [&#39;concat408_output&#39;, &#39;add400_output&#39;],
-            input_after   = [&#39;conv336_output&#39;] )
-
-
-          connect_layers(nn, from_=&#39;conv100&#39;, to_=&#39;concat408&#39;)
-
-      returns:
-
-          (changed_layer =  &#39;None&#39;, error = &#34;Layer [&#39;conv100&#39;] not found&#34;)
-
+        `  (changed_layer =  &#39;None&#39;, error = &#34;Layer [&#39;conv100&#39;] not found&#34;)  `
     &#34;&#34;&#34;
     from copy import deepcopy
 
     ldict        = self.layer_dict
     layers       = self.layers
-    layer_change = namedtuple(&#39;layer_audit&#39;,&#39;changed_layer input_before input_after error&#39;)
     layer_names  = ldict.keys()
     missing      = [ name for name  in [from_, to_] if name not in layer_names ]
 
-    if len(missing) &gt; 0: return layer_change(changed_layer = &#34;NONE&#34;,
-                                             error         = f&#34;Layer(s) {[missing]} not found&#34;,
-                                             input_before  = None,
-                                             input_after   = None )
+    if len(missing) &gt; 0:
+      return LayerAudit(changed_layer=&#34;NONE&#34;, input_before=None, input_after=None, error=f&#34;Layer(s) {[missing]} not found&#34;)
+
     from_layer   = layers[ldict[from_]]
     to_layer     = layers[ldict[to_]]
     input_before = deepcopy(to_layer.input)
@@ -1741,10 +1508,7 @@ Should be ndarray or convertible to an ndarray</dd>
     for i in range(len(from_layer.output)):
       to_layer.input.append(from_layer.output[i])
 
-    return layer_change(changed_layer = to_layer.name,
-                        input_before  = input_before,
-                        input_after   = deepcopy(to_layer.input),
-                        error = None )
+    return LayerAudit(changed_layer=to_layer.name, input_before=input_before, input_after=deepcopy(to_layer.input), error=None)
 
 
   def delete_layers(self, names_to_delete:[str])-&gt;[dict]:
@@ -1758,15 +1522,16 @@ Should be ndarray or convertible to an ndarray</dd>
       An array of dicts, one for each deletion
 
     Example:
-
-          delete_layers(nn,[&#39;conv335&#39;,&#39;bn400&#39;,&#39;avt500&#39;]) # ( assume &#39;avt500&#39; does not exist)
-
-        returns:
-          [
-            {&#39;deleted_layer&#39;: &#39;conv335&#39;,  &#39;input&#39;: [&#39;bn334&#39;], &#39;output&#39;: [&#39;conv335&#39;]},
-            {&#39;deleted_layer&#39;: &#39;bn400&#39;, &#39;input&#39;: [&#39;conv399&#39;], &#39;output&#39;: [&#39;bn400&#39;]},
-          ]
-
+    ```
+      delete_layers(nn,[&#39;conv335&#39;,&#39;bn400&#39;,&#39;avt500&#39;]) # ( assume &#39;avt500&#39; does not exist)
+    ```
+    returns:
+    ```
+      [
+        {&#39;deleted_layer&#39;: &#39;conv335&#39;,  &#39;input&#39;: [&#39;bn334&#39;], &#39;output&#39;: [&#39;conv335&#39;]},
+        {&#39;deleted_layer&#39;: &#39;bn400&#39;, &#39;input&#39;: [&#39;conv399&#39;], &#39;output&#39;: [&#39;bn400&#39;]},
+      ]
+    ```
     &#34;&#34;&#34;
     from copy import deepcopy
     deleted = []
@@ -1785,21 +1550,55 @@ Should be ndarray or convertible to an ndarray</dd>
     self.layer_count = len(self.layers)
     self.layer_dict  = {layer.name:i for i,layer in enumerate(self.layers)}
 
-    return deleted</code></pre>
+    return deleted
+
+  def compile_spec(self)-&gt;MLModel:
+    &#34;&#34;&#34;
+    Convenience method to re-compile and save model after editing the spec.
+    Returns the compiled spec - the MLModel object. Equivalent to:
+
+      `CoremlBrowser.mlmodel` = `coremltools.models.MLModel`(`CoremlBrowser.spec`)
+    &#34;&#34;&#34;
+    self.mlmodel = cm.MLModel(self.spec)
+    return self.mlmodel</code></pre>
 </details>
+<h3>Class variables</h3>
+<dl>
+<dt id="coreml_help.CoremlBrowser.sp"><code class="name">var <span class="ident">sp</span></code></dt>
+<dd>
+<section class="desc"></section>
+</dd>
+</dl>
 <h3>Instance variables</h3>
 <dl>
+<dt id="coreml_help.CoremlBrowser.layer_count"><code class="name">var <span class="ident">layer_count</span></code></dt>
+<dd>
+<section class="desc"><p>NUmber
+of layers</p></section>
+</dd>
 <dt id="coreml_help.CoremlBrowser.layer_dict"><code class="name">var <span class="ident">layer_dict</span></code></dt>
 <dd>
 <section class="desc"><p>Maps a layer name to its index</p></section>
+</dd>
+<dt id="coreml_help.CoremlBrowser.layer_shapes"><code class="name">var <span class="ident">layer_shapes</span></code></dt>
+<dd>
+<section class="desc"><p>Shape dictionary for this model</p></section>
 </dd>
 <dt id="coreml_help.CoremlBrowser.layers"><code class="name">var <span class="ident">layers</span></code></dt>
 <dd>
 <section class="desc"><p>Neural network layers</p></section>
 </dd>
+<dt id="coreml_help.CoremlBrowser.mlmodel"><code class="name">var <span class="ident">mlmodel</span></code></dt>
+<dd>
+<section class="desc"><p>A MLModel object. The result of <strong>compiling</strong> the '.mlmodel' file</p></section>
+</dd>
 <dt id="coreml_help.CoremlBrowser.mlmodel_path"><code class="name">var <span class="ident">mlmodel_path</span></code></dt>
 <dd>
-<section class="desc"><p>Path to the mlmodel file</p></section>
+<section class="desc"><p>The full path of the '.mlmodel' file</p></section>
+</dd>
+<dt id="coreml_help.CoremlBrowser.name_len_centile"><code class="name">var <span class="ident">name_len_centile</span></code></dt>
+<dd>
+<section class="desc"><p>90% of the layer names are equal to or shorter than this value</p></section>
 </dd>
 <dt id="coreml_help.CoremlBrowser.nn"><code class="name">var <span class="ident">nn</span></code></dt>
 <dd>
@@ -1811,11 +1610,74 @@ Should be ndarray or convertible to an ndarray</dd>
 </dd>
 <dt id="coreml_help.CoremlBrowser.spec"><code class="name">var <span class="ident">spec</span></code></dt>
 <dd>
-<section class="desc"><p>(Protobuf) spec for the model</p></section>
+<section class="desc"><p>(Protobuf) spec for the model. Also the result of <em>loading</em> the '.mlmodel' file</p></section>
 </dd>
 </dl>
 <h3>Methods</h3>
 <dl>
+<dt id="coreml_help.CoremlBrowser.compile_coreml"><code class="name flex">
+<span>def <span class="ident">compile_coreml</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Compile the protobuf spec using the OSX <code>coremlcompiler</code> application.
+Used to capture shape information when instantiating a CoremlBrowser.</p>
+<h2 id="uses">Uses</h2>
+<p><a title="coreml_help.CoremlBrowser.spec" href="#coreml_help.CoremlBrowser.spec"><code>CoremlBrowser.spec</code></a>, the (Protobuf) spec for the model.</p>
+<h2 id="returns">Returns</h2>
+<p><code>stdout</code> (str): The <em>stdout</em> from the compiler,
+which (should) contain shape info, or an empty string.</p>
+<h2 id="note">Note</h2>
+<p>The <em>OSX shell command</em> to run the compiler is</p>
+<p><code>xcrun coremlcompiler compile rn50.mlmodel out &gt; rn50-compile-out.txt</code></p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def compile_coreml(self)-&gt;str:
+  &#34;&#34;&#34;
+  Compile the protobuf spec using the OSX `coremlcompiler` application.
+  Used to capture shape information when instantiating a CoremlBrowser.
+
+  Uses:
+    `CoremlBrowser.spec`, the (Protobuf) spec for the model.
+
+  Returns:
+    `stdout` (str): The *stdout* from the compiler,
+    which (should) contain shape info, or an empty string.
+
+  Note:
+    The *OSX shell command* to run the compiler is
+
+    `xcrun coremlcompiler compile rn50.mlmodel out &gt; rn50-compile-out.txt`
+
+  &#34;&#34;&#34;
+  from sys import platform
+  from subprocess import run, CompletedProcess, PIPE
+
+  if platform != &#39;darwin&#39;: return &#39;&#39;
+  compile_cmd = [&#39;xcrun&#39;, &#39;coremlcompiler&#39;, &#39;compile&#39;, self.mlmodel_path, &#39;.&#39;]
+  compilation: CompletedProcess = run(compile_cmd, stdout=PIPE, stderr=PIPE, universal_newlines=True)
+  return compilation.stdout if compilation.returncode == 0 else &#39;&#39;</code></pre>
+</details>
+</dd>
+<dt id="coreml_help.CoremlBrowser.compile_spec"><code class="name flex">
+<span>def <span class="ident">compile_spec</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Convenience method to re-compile and save model after editing the spec.
+Returns the compiled spec - the MLModel object. Equivalent to:</p>
+<p><a title="coreml_help.CoremlBrowser.mlmodel" href="#coreml_help.CoremlBrowser.mlmodel"><code>CoremlBrowser.mlmodel</code></a> = <code>coremltools.models.MLModel</code>(<a title="coreml_help.CoremlBrowser.spec" href="#coreml_help.CoremlBrowser.spec"><code>CoremlBrowser.spec</code></a>)</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def compile_spec(self)-&gt;MLModel:
+  &#34;&#34;&#34;
+  Convenience method to re-compile and save model after editing the spec.
+  Returns the compiled spec - the MLModel object. Equivalent to:
+
+    `CoremlBrowser.mlmodel` = `coremltools.models.MLModel`(`CoremlBrowser.spec`)
+  &#34;&#34;&#34;
+  self.mlmodel = cm.MLModel(self.spec)
+  return self.mlmodel</code></pre>
+</details>
+</dd>
 <dt id="coreml_help.CoremlBrowser.connect_layers"><code class="name flex">
 <span>def <span class="ident">connect_layers</span></span>(<span>self, from_, to_, replace=True)</span>
 </code></dt>
@@ -1823,9 +1685,7 @@ Should be ndarray or convertible to an ndarray</dd>
 <section class="desc"><p>Connect the output of one CoreML model layer to the input of another.</p>
 <p>Layers are identified by name. An invalid layer name aborts any connection attempt.
 Note that when two layers are <em>connected</em>, only one layer is modified:
-the only field that changes is the <strong>to</strong> layer's <em>input</em> field. Note also
-that the
-keyword arguments <code>from_</code> and <code>to_</code> are suffixed by underscores.</p>
+the only field that changes is the <strong>to</strong> layer's <em>input</em> field.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>from_</code></strong> :&ensp;<code>str</code></dt>
@@ -1834,28 +1694,26 @@ keyword arguments <code>from_</code> and <code>to_</code> are suffixed by unders
 <dd>The name of the layer receiving the <code>from</code> outputs.
 This layer's <code>input</code> field is modified.</dd>
 <dt><strong><code>replace</code></strong> :&ensp;<code>bool</code></dt>
-<dd><em>True</em> (default) Replaces (overwrites)
-the 'to' layer's input with the 'from' layer's output.
-<em>False</em> appends the 'from' layer's output to the the 'to' layer's input.</dd>
+<dd><em>True</em> (default) <strong>Replaces</strong> (overwrites)
+the <em>to layer</em>'s <code>input</code> with the <em>from layer</em>'s <code>output</code>.
+<em>False</em> <strong>appends</strong> the <em>from layer</em>'s <code>output</code> to the the <em>to layer</em>'s <code>input</code>.</dd>
 </dl>
 <h2 id="return">Return</h2>
 <p>A named tuple describing the change (see examples that follow)</p>
 <h2 id="examples">Examples</h2>
-<pre><code>cmb = CoremlBrowser( ... path to 'mlmodel' file ...)
-
-cmb.connect_layers(from_='conv336', to_='bnorm409')
+<pre><code>  cmb = CoremlBrowser( ... path to 'mlmodel' file ...)
+  cmb.connect_layers(from_='conv336', to_='bnorm409')
 </code></pre>
 <p>returns:</p>
-<pre><code>( changed_layer = 'bnorm409',
-  input_before  = ['concat408_output', 'add400_output'],
-  input_after   = ['conv336_output'] )
+<pre><code>  ( changed_layer = 'bnorm409',
+    input_before  = ['concat408_output', 'add400_output'],
+    input_after   = ['conv336_output'] )
 
-
-connect_layers(nn, from_='conv100', to_='concat408')
+   connect_layers(nn, from_='conv100', to_='concat408')
 </code></pre>
 <p>returns:</p>
-<pre><code>(changed_layer =  'None', error = "Layer ['conv100'] not found")
-</code></pre></section>
+<p><code>(changed_layer =
+'None', error = "Layer ['conv100'] not found")</code></p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def connect_layers(self, from_:str, to_:str, replace=True)-&gt;namedtuple:
@@ -1864,8 +1722,7 @@ connect_layers(nn, from_='conv100', to_='concat408')
 
   Layers are identified by name. An invalid layer name aborts any connection attempt.
   Note that when two layers are *connected*, only one layer is modified:
-  the only field that changes is the **to** layer&#39;s *input* field. Note also
-  that the  keyword arguments `from_` and `to_` are suffixed by underscores.
+  the only field that changes is the **to** layer&#39;s *input* field.
 
   Args:
     from_ (str): The name of the layer supplying the outputs
@@ -1873,45 +1730,40 @@ connect_layers(nn, from_='conv100', to_='concat408')
     to_ (str): The name of the layer receiving the `from` outputs.
                  This layer&#39;s `input` field is modified.
 
-    replace (bool): *True* (default) Replaces (overwrites)
-                the &#39;to&#39; layer&#39;s input with the &#39;from&#39; layer&#39;s output.
-                *False* appends the &#39;from&#39; layer&#39;s output to the the &#39;to&#39; layer&#39;s input.
+    replace (bool): *True* (default) **Replaces** (overwrites)
+                the *to layer*&#39;s `input` with the *from layer*&#39;s `output`.
+                *False* **appends** the *from layer*&#39;s `output` to the the *to layer*&#39;s `input`.
 
   Return:
     A named tuple describing the change (see examples that follow)
 
   Examples:
+    ```
+      cmb = CoremlBrowser( ... path to &#39;mlmodel&#39; file ...)
+      cmb.connect_layers(from_=&#39;conv336&#39;, to_=&#39;bnorm409&#39;)
+    ```
+    returns:
+    ```
+      ( changed_layer = &#39;bnorm409&#39;,
+        input_before  = [&#39;concat408_output&#39;, &#39;add400_output&#39;],
+        input_after   = [&#39;conv336_output&#39;] )
 
-        cmb = CoremlBrowser( ... path to &#39;mlmodel&#39; file ...)
-
-        cmb.connect_layers(from_=&#39;conv336&#39;, to_=&#39;bnorm409&#39;)
-
+       connect_layers(nn, from_=&#39;conv100&#39;, to_=&#39;concat408&#39;)
+    ```
     returns:
 
-        ( changed_layer = &#39;bnorm409&#39;,
-          input_before  = [&#39;concat408_output&#39;, &#39;add400_output&#39;],
-          input_after   = [&#39;conv336_output&#39;] )
-
-
-        connect_layers(nn, from_=&#39;conv100&#39;, to_=&#39;concat408&#39;)
-
-    returns:
-
-        (changed_layer =  &#39;None&#39;, error = &#34;Layer [&#39;conv100&#39;] not found&#34;)
-
+      `  (changed_layer =  &#39;None&#39;, error = &#34;Layer [&#39;conv100&#39;] not found&#34;)  `
   &#34;&#34;&#34;
   from copy import deepcopy
 
   ldict        = self.layer_dict
   layers       = self.layers
-  layer_change = namedtuple(&#39;layer_audit&#39;,&#39;changed_layer input_before input_after error&#39;)
   layer_names  = ldict.keys()
   missing      = [ name for name  in [from_, to_] if name not in layer_names ]
 
-  if len(missing) &gt; 0: return layer_change(changed_layer = &#34;NONE&#34;,
-                                           error         = f&#34;Layer(s) {[missing]} not found&#34;,
-                                           input_before  = None,
-                                           input_after   = None )
+  if len(missing) &gt; 0:
+    return LayerAudit(changed_layer=&#34;NONE&#34;, input_before=None, input_after=None, error=f&#34;Layer(s) {[missing]} not found&#34;)
+
   from_layer   = layers[ldict[from_]]
   to_layer     = layers[ldict[to_]]
   input_before = deepcopy(to_layer.input)
@@ -1923,10 +1775,7 @@ connect_layers(nn, from_='conv100', to_='concat408')
   for i in range(len(from_layer.output)):
     to_layer.input.append(from_layer.output[i])
 
-  return layer_change(changed_layer = to_layer.name,
-                      input_before  = input_before,
-                      input_after   = deepcopy(to_layer.input),
-                      error = None )</code></pre>
+  return LayerAudit(changed_layer=to_layer.name, input_before=input_before, input_after=deepcopy(to_layer.input), error=None)</code></pre>
 </details>
 </dd>
 <dt id="coreml_help.CoremlBrowser.delete_layers"><code class="name flex">
@@ -1941,15 +1790,16 @@ Invalid layer names are silently ignored.</p>
 <dd>list of layer names</dd>
 </dl>
 <h2 id="return">Return</h2>
-<p>An array of dicts, one for each deletion</p>
-<h2 id="example">Example</h2>
-<p>delete_layers(nn,['conv335','bn400','avt500']) # ( assume 'avt500' does not exist)</p>
-<p>returns:
-[
-{'deleted_layer': 'conv335',
-'input': ['bn334'], 'output': ['conv335']},
-{'deleted_layer': 'bn400', 'input': ['conv399'], 'output': ['bn400']},
-]</p></section>
+<p>An array of dicts, one for each deletion
+Example:</p>
+<pre><code>  delete_layers(nn,['conv335','bn400','avt500']) # ( assume 'avt500' does not exist)
+</code></pre>
+<p>returns:</p>
+<pre><code>  [
+    {'deleted_layer': 'conv335',  'input': ['bn334'], 'output': ['conv335']},
+    {'deleted_layer': 'bn400', 'input': ['conv399'], 'output': ['bn400']},
+  ]
+</code></pre></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def delete_layers(self, names_to_delete:[str])-&gt;[dict]:
@@ -1963,15 +1813,16 @@ Invalid layer names are silently ignored.</p>
     An array of dicts, one for each deletion
 
   Example:
-
-        delete_layers(nn,[&#39;conv335&#39;,&#39;bn400&#39;,&#39;avt500&#39;]) # ( assume &#39;avt500&#39; does not exist)
-
-      returns:
-        [
-          {&#39;deleted_layer&#39;: &#39;conv335&#39;,  &#39;input&#39;: [&#39;bn334&#39;], &#39;output&#39;: [&#39;conv335&#39;]},
-          {&#39;deleted_layer&#39;: &#39;bn400&#39;, &#39;input&#39;: [&#39;conv399&#39;], &#39;output&#39;: [&#39;bn400&#39;]},
-        ]
-
+  ```
+    delete_layers(nn,[&#39;conv335&#39;,&#39;bn400&#39;,&#39;avt500&#39;]) # ( assume &#39;avt500&#39; does not exist)
+  ```
+  returns:
+  ```
+    [
+      {&#39;deleted_layer&#39;: &#39;conv335&#39;,  &#39;input&#39;: [&#39;bn334&#39;], &#39;output&#39;: [&#39;conv335&#39;]},
+      {&#39;deleted_layer&#39;: &#39;bn400&#39;, &#39;input&#39;: [&#39;conv399&#39;], &#39;output&#39;: [&#39;bn400&#39;]},
+    ]
+  ```
   &#34;&#34;&#34;
   from copy import deepcopy
   deleted = []
@@ -1993,17 +1844,108 @@ Invalid layer names are silently ignored.</p>
   return deleted</code></pre>
 </details>
 </dd>
+<dt id="coreml_help.CoremlBrowser.extract_shapes"><code class="name flex">
+<span>def <span class="ident">extract_shapes</span></span>(<span>self, comp_output)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Extract the shape of the network layers from the mlmodel compilation output file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>comp_output</code></strong></dt>
+<dd>The text output captured from compiling the .mlmodel file.</dd>
+</dl>
+<p>Returns a dictionary of lists keyed by layer name, each list is a triplet [C,H,W]
+representing the output shape of that layer.</p>
+<pre><code>`{ layer0_name:[C,H,W], layer1_name:[C,H,W] .. }`
+</code></pre>
+<h2 id="notes">Notes</h2>
+<p>Here is an sample line from the compiler output
+<code>Neural Network compiler 174: 320 , name = 507, output shape : (C,H,W) = (4096, 1, 1)</code></p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def extract_shapes(self, comp_output:str )-&gt;dict:
+  &#34;&#34;&#34;
+  Extract the shape of the network layers from the mlmodel compilation output file.
+
+  Args:
+    comp_output: The text output captured from compiling the .mlmodel file.
+
+  Returns a dictionary of lists keyed by layer name, each list is a triplet [C,H,W]
+  representing the output shape of that layer.
+
+      `{ layer0_name:[C,H,W], layer1_name:[C,H,W] .. }`
+
+  Notes:
+    Here is an sample line from the compiler output
+
+  `
+  Neural Network compiler 174: 320 , name = 507, output shape : (C,H,W) = (4096, 1, 1)
+  `
+  &#34;&#34;&#34;
+  if comp_output is None or  len(comp_output) &lt; 20 :
+    print(f&#34;Compilation output string is None or too small&#34;,f&#34;compiliation output: {comp_output}&#34; )
+    return None
+
+  # Used to extract name and shapes from lines in the out_file
+
+  import re
+  name  = re.compile(r&#34;name =\s+([/\w]+),&#34;)
+  shape = re.compile(r&#34;=\s+\((-?\d+),\s+(-?\d+),\s+(-?\d+)\)&#34;)
+  lines = re.split(&#34;\n&#34;,comp_output)
+
+  # The comprehension below pulls name and shapes from each line in the array
+  # and outputs them as a dictionary.
+
+  layer_shapes = \
+    {n.group(1): [s.group(1), s.group(2), s.group(3)]
+     for n, s in [(name.search(ln), shape.search(ln)) for ln in lines] if n and s }
+
+  # First line is a header
+  # Second line (index 1) is input name and is a different format - just reported, not compiled
+
+  line1 = lines[1]
+  name1 = re.search(r&#39;^\w+&#39;, line1).group(0)
+  s     = shape.search(line1)
+  layer_shapes[name1] = [s.group(1), s.group(2), s.group(3)]
+
+  if len(layer_shapes) == 0:
+    raise ValueError(f&#34;Nothing found, check contents of compilation output&#34;)
+
+  return layer_shapes</code></pre>
+</details>
+</dd>
+<dt id="coreml_help.CoremlBrowser.get_layer_name"><code class="name flex">
+<span>def <span class="ident">get_layer_name</span></span>(<span>self, name)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Locate and return a nn layer using its name</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def get_layer_name(self, name:str):
+  &#34;&#34;&#34;Locate and return a nn layer using its name&#34;&#34;&#34;
+  return self.layers[self.layer_dict[name]]</code></pre>
+</details>
+</dd>
+<dt id="coreml_help.CoremlBrowser.get_layer_num"><code class="name flex">
+<span>def <span class="ident">get_layer_num</span></span>(<span>self, idx)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Locate and return a nn layer using its index value</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def get_layer_num(self, idx:int):
+  &#34;&#34;&#34;Locate and return a nn layer using its index value&#34;&#34;&#34;
+  return self.layers[idx]</code></pre>
+</details>
+</dd>
 <dt id="coreml_help.CoremlBrowser.get_nn"><code class="name flex">
 <span>def <span class="ident">get_nn</span></span>(<span>self)</span>
 </code></dt>
 <dd>
 <section class="desc"><p>Get the layers object for a CoreML neural network.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>spec</code></strong> :&ensp;<code>Model</code></dt>
-<dd>The <code>protobuf</code> spec. for this CoreML model.
-Returned by <code>coremltools.util.load_spec("file.mlmodel")</code></dd>
-</dl>
+<h2 id="uses">Uses</h2>
+<p>self.spec (Model): The <code>protobuf</code> spec. for this CoreML model.
+Returned by <code>coremltools.util.load_spec("file.mlmodel")</code></p>
 <h2 id="return">Return</h2>
 <p>The neural network layers of the model or an Attribute Error.
 The precise return type is determined by the value of <code>spec.WhichOneof("Type")</code>,
@@ -2024,9 +1966,9 @@ which should be one of:</p>
   &#34;&#34;&#34;
   Get the layers object for a CoreML neural network.
 
-  Args:
-    spec (Model): The `protobuf` spec. for this CoreML model.
-                  Returned by `coremltools.util.load_spec(&#34;file.mlmodel&#34;)`
+  Uses:
+    self.spec (Model): The `protobuf` spec. for this CoreML model.
+              Returned by `coremltools.util.load_spec(&#34;file.mlmodel&#34;)`
 
   Return:
     The neural network layers of the model or an Attribute Error.
@@ -2050,6 +1992,110 @@ which should be one of:</p>
   nn = nn_dict[self.spec.WhichOneof(&#34;Type&#34;)]
   if nn is None: raise AttributeError(&#34;MLModel is not a neural network sub-class&#34;)
   return nn</code></pre>
+</details>
+</dd>
+<dt id="coreml_help.CoremlBrowser.get_shape_for"><code class="name flex">
+<span>def <span class="ident">get_shape_for</span></span>(<span>self, name)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Try to get the shape for layer <code>name</code></p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the layer</dd>
+</dl>
+<p>Returns (Union[dict, str]):
+The shape dict object from the shape dictionary if it exists, or
+The shape dict returned by the shaper object if it exists, or
+The text of the exception generated by the shaper object, or
+None</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def get_shape_for(self, name:str) -&gt; Union[list,dict,None]:
+  &#34;&#34;&#34;
+  Try to get the shape for layer `name`
+
+  Args:
+    name (str): The name of the layer
+
+  Returns (Union[dict, str]):
+    The shape dict object from the shape dictionary if it exists, or
+    The shape dict returned by the shaper object if it exists, or
+    The text of the exception generated by the shaper object, or
+    None
+  &#34;&#34;&#34;
+  res = None
+
+  if self.layer_shapes is not None:
+    res = self.layer_shapes.get(name)
+
+  if res is None and self.shaper is not None:
+    try: res = self.shaper.shape(name)
+    except IndexError as e: pass
+
+  return res</code></pre>
+</details>
+</dd>
+<dt id="coreml_help.CoremlBrowser.init_shapes"><code class="name flex">
+<span>def <span class="ident">init_shapes</span></span>(<span>self, use_shaper=False)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Get shapes for the layers in the model. Compiles model to get shapes.</p>
+<h2 id="args">Args</h2>
+<p>use_shaper (bool):
+False =&gt; Ignore the shaper object, try to compile model to get shapes
+True
+=&gt; Use the shaper object if available</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt>True for success =&gt; the object variable <code>layer_shapes</code> contains a valid shape dictionary</dt>
+<dt><code>False</code> <code>for</code> <code>failure</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<p>The<code>NeuralNetworkShaper</code> object crashes python sometimes
+(prob. because the network is invalid in some way),
+- so it is not preferred.</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def init_shapes(self, use_shaper=False):
+  &#34;&#34;&#34;
+  Get shapes for the layers in the model. Compiles model to get shapes.
+
+  Args:
+    use_shaper (bool):
+      False =&gt; Ignore the shaper object, try to compile model to get shapes
+      True  =&gt; Use the shaper object if available
+
+  Returns:
+    True for success =&gt; the object variable `layer_shapes` contains a valid shape dictionary
+    False for failure
+
+  The`NeuralNetworkShaper` object crashes python sometimes
+  (prob. because the network is invalid in some way),
+  - so it is not preferred.
+  &#34;&#34;&#34;
+  self.layer_shapes = None
+  self.shaper       = None
+
+  if use_shaper:
+    try:
+      self.shaper = cm.NeuralNetworkShaper(self.spec)
+    except Exception as e :
+      self.shaper = None
+      shaper_exception = e
+      print(&#34;&#39;NeuralNetworkShaper&#39; reports &#34;, shaper_exception)
+
+  if self.shaper is None:
+    comp_out = self.compile_coreml()
+    self.layer_shapes = self.extract_shapes(comp_out)
+
+  if self.layer_shapes is not None:
+    print(f&#34;Using shape info from compilation output&#34;)
+
+  if self.shaper is None and self.layer_shapes is None:
+    print(&#34;  Can&#39;t infer shapes because &#39;NeuralNetworkShaper&#39; is not available&#34;)
+    print(&#34;  and could not compile the model to generate shapes&#34;)
+    print()</code></pre>
 </details>
 </dd>
 <dt id="coreml_help.CoremlBrowser.show_nn"><code class="name flex">
@@ -2100,17 +2146,13 @@ less than or equal to
   if start &lt; 0                   : count = 3; start = nn_count + start
   if start + count &gt; nn_count    : start = nn_count - count
 
-  sp = &#34;   &#34; # formatting spacer
-  one_line_heading = f&#34;Lay Name{ sp:4}In{sp:8}Out{sp:6}Shapes{sp:7}Type,Chan(s){sp:7}Size,Stride,Dilation,#Wts&#34;
-  two_line_heading = f&#34;Lay Name{sp:32}In/Out{sp:24}Type,Chan(s){sp:7}Size,Stride,Dilation,#Wts&#34;
-
   # If &gt;= 90% layer names are &#34;short&#34;, print layer on one line, otherwise use two
   if self.name_len_centile &lt;= break_len:
     format_layer = self._fmt_for_one_line
-    heading      = one_line_heading
+    heading      = self._one_line_heading
   else:
     format_layer = self._fmt_for_two_lines
-    heading      = two_line_heading
+    heading      = self._two_line_heading
 
   print(heading)
 
@@ -2125,29 +2167,33 @@ less than or equal to
 </dd>
 </dl>
 </dd>
-<dt id="coreml_help.ImageRepo"><code class="flex name class">
-<span>class <span class="ident">ImageRepo</span></span>
+<dt id="coreml_help.LayerAudit"><code class="flex name class">
+<span>class <span class="ident">LayerAudit</span></span>
 <span>(</span><span>*args, **kwargs)</span>
 </code></dt>
 <dd>
-<section class="desc"><p>ImageRepo(mean, std, labels_url)</p></section>
+<section class="desc"><p>Namedtuple to track changes to a CoreML model</p></section>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li>builtins.tuple</li>
 </ul>
 <h3>Instance variables</h3>
 <dl>
-<dt id="coreml_help.ImageRepo.labels_url"><code class="name">var <span class="ident">labels_url</span></code></dt>
+<dt id="coreml_help.LayerAudit.changed_layer"><code class="name">var <span class="ident">changed_layer</span></code></dt>
 <dd>
-<section class="desc"><p>Alias for field number 2</p></section>
+<section class="desc"><p><em>Name</em> of the changed layer</p></section>
 </dd>
-<dt id="coreml_help.ImageRepo.mean"><code class="name">var <span class="ident">mean</span></code></dt>
+<dt id="coreml_help.LayerAudit.error"><code class="name">var <span class="ident">error</span></code></dt>
 <dd>
-<section class="desc"><p>Alias for field number 0</p></section>
+<section class="desc"><p>Errors, if any</p></section>
 </dd>
-<dt id="coreml_help.ImageRepo.std"><code class="name">var <span class="ident">std</span></code></dt>
+<dt id="coreml_help.LayerAudit.input_after"><code class="name">var <span class="ident">input_after</span></code></dt>
 <dd>
-<section class="desc"><p>Alias for field number 1</p></section>
+<section class="desc"><p>Value of the input list <em>after</em> any changes</p></section>
+</dd>
+<dt id="coreml_help.LayerAudit.input_before"><code class="name">var <span class="ident">input_before</span></code></dt>
+<dd>
+<section class="desc"><p>Value of the input list <em>before</em> any changes</p></section>
 </dd>
 </dl>
 </dd>
@@ -2163,31 +2209,50 @@ less than or equal to
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="two-column">
 <li><code><a title="coreml_help.get_rand_images" href="#coreml_help.get_rand_images">get_rand_images</a></code></li>
-<li><code><a title="coreml_help.get_shapes" href="#coreml_help.get_shapes">get_shapes</a></code></li>
+<li><code><a title="coreml_help.is_imgfile" href="#coreml_help.is_imgfile">is_imgfile</a></code></li>
 <li><code><a title="coreml_help.main" href="#coreml_help.main">main</a></code></li>
-<li><code><a title="coreml_help.norm_for_imagenet" href="#coreml_help.norm_for_imagenet">norm_for_imagenet</a></code></li>
-<li><code><a title="coreml_help.pred_for_coreml" href="#coreml_help.pred_for_coreml">pred_for_coreml</a></code></li>
-<li><code><a title="coreml_help.pred_for_o2c" href="#coreml_help.pred_for_o2c">pred_for_o2c</a></code></li>
-<li><code><a title="coreml_help.pred_for_onnx" href="#coreml_help.pred_for_onnx">pred_for_onnx</a></code></li>
 <li><code><a title="coreml_help.show_head" href="#coreml_help.show_head">show_head</a></code></li>
 <li><code><a title="coreml_help.show_nn" href="#coreml_help.show_nn">show_nn</a></code></li>
 <li><code><a title="coreml_help.show_tail" href="#coreml_help.show_tail">show_tail</a></code></li>
-<li><code><a title="coreml_help.softmax" href="#coreml_help.softmax">softmax</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
 <h4><code><a title="coreml_help.CoremlBrowser" href="#coreml_help.CoremlBrowser">CoremlBrowser</a></code></h4>
-<ul class="">
+<ul class="two-column">
+<li><code><a title="coreml_help.CoremlBrowser.compile_coreml" href="#coreml_help.CoremlBrowser.compile_coreml">compile_coreml</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.compile_spec" href="#coreml_help.CoremlBrowser.compile_spec">compile_spec</a></code></li>
 <li><code><a title="coreml_help.CoremlBrowser.connect_layers" href="#coreml_help.CoremlBrowser.connect_layers">connect_layers</a></code></li>
 <li><code><a title="coreml_help.CoremlBrowser.delete_layers" href="#coreml_help.CoremlBrowser.delete_layers">delete_layers</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.extract_shapes" href="#coreml_help.CoremlBrowser.extract_shapes">extract_shapes</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.get_layer_name" href="#coreml_help.CoremlBrowser.get_layer_name">get_layer_name</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.get_layer_num" href="#coreml_help.CoremlBrowser.get_layer_num">get_layer_num</a></code></li>
 <li><code><a title="coreml_help.CoremlBrowser.get_nn" href="#coreml_help.CoremlBrowser.get_nn">get_nn</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.get_shape_for" href="#coreml_help.CoremlBrowser.get_shape_for">get_shape_for</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.init_shapes" href="#coreml_help.CoremlBrowser.init_shapes">init_shapes</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.layer_count" href="#coreml_help.CoremlBrowser.layer_count">layer_count</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.layer_dict" href="#coreml_help.CoremlBrowser.layer_dict">layer_dict</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.layer_shapes" href="#coreml_help.CoremlBrowser.layer_shapes">layer_shapes</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.layers" href="#coreml_help.CoremlBrowser.layers">layers</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.mlmodel" href="#coreml_help.CoremlBrowser.mlmodel">mlmodel</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.mlmodel_path" href="#coreml_help.CoremlBrowser.mlmodel_path">mlmodel_path</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.name_len_centile" href="#coreml_help.CoremlBrowser.name_len_centile">name_len_centile</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.nn" href="#coreml_help.CoremlBrowser.nn">nn</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.shaper" href="#coreml_help.CoremlBrowser.shaper">shaper</a></code></li>
 <li><code><a title="coreml_help.CoremlBrowser.show_nn" href="#coreml_help.CoremlBrowser.show_nn">show_nn</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.sp" href="#coreml_help.CoremlBrowser.sp">sp</a></code></li>
+<li><code><a title="coreml_help.CoremlBrowser.spec" href="#coreml_help.CoremlBrowser.spec">spec</a></code></li>
 </ul>
 </li>
 <li>
-<h4><code><a title="coreml_help.ImageRepo" href="#coreml_help.ImageRepo">ImageRepo</a></code></h4>
+<h4><code><a title="coreml_help.LayerAudit" href="#coreml_help.LayerAudit">LayerAudit</a></code></h4>
+<ul class="">
+<li><code><a title="coreml_help.LayerAudit.changed_layer" href="#coreml_help.LayerAudit.changed_layer">changed_layer</a></code></li>
+<li><code><a title="coreml_help.LayerAudit.error" href="#coreml_help.LayerAudit.error">error</a></code></li>
+<li><code><a title="coreml_help.LayerAudit.input_after" href="#coreml_help.LayerAudit.input_after">input_after</a></code></li>
+<li><code><a title="coreml_help.LayerAudit.input_before" href="#coreml_help.LayerAudit.input_before">input_before</a></code></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -2195,7 +2260,7 @@ less than or equal to
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.6.2</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.6.3</a>.</p>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad()</script>
