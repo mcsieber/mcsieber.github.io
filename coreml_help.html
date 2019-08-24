@@ -155,15 +155,13 @@ class CoremlBrowser:
     - `show_tail`        Convenience functions  of  method `show_nn`
     - `get_rand_images`  Return images (jpg and png) randomly sampled from child dirs.
 
-  -------
+  --------
   &#34;&#34;&#34;
 
   def __init__(self, mlmodel: Union[Upath, MLModel]):
     &#34;&#34;&#34;
-
     Args:
       mlmodel: Either the path to the `protobuf` spec, or an extant `MLModel` object
-
     &#34;&#34;&#34;
     self.mlmodel = None
     &#34;&#34;&#34; A MLModel object. The result of **compiling** the &#39;.mlmodel&#39; file &#34;&#34;&#34;
@@ -211,9 +209,10 @@ class CoremlBrowser:
       which (should) contain shape info, or an empty string.
 
     Note:
-      The *OSX shell command* to run the compiler is
+       XCode installs `coremlcompiler`.
+       An example of the *OSX shell command* to run the compiler is
 
-      `xcrun coremlcompiler compile rn50.mlmodel out &gt; rn50-compile-out.txt`
+      `xcrun coremlcompiler compile rn50.mlmodel rn50_out_dir `
 
     &#34;&#34;&#34;
     from sys import platform
@@ -539,13 +538,10 @@ class CoremlBrowser:
 
     return line1 + &#34;\n&#34; + line2 + &#34;\n&#34;
 
-
   # So that these can be changed dynamically, for now
   sp = &#34;   &#34; # formatting spacer
   _one_line_heading = f&#34;Lay Name{ sp:6}In{sp:9}Out{sp:9}Shapes{sp:10}Type,Chan(s){sp:9}Size,Stride,Dilation,#Wts&#34;
   _two_line_heading = f&#34;Lay Name{sp:21}In/Out{sp:26}Type,Chan(s)/Shape{sp:3}Size,Stride,Dilation,#Wts&#34;
-  #_two_line_heading = f&#34;Lay Name{sp:20}In/Out{sp:30}Type,Chan(s){sp:7}Size,Stride,Dilation,#Wts&#34;
-
 
   def show_nn(self,  start:Union[int,str]=0, count=4,  break_len=8 ) -&gt; None:
     &#34;&#34;&#34;
@@ -593,7 +589,6 @@ class CoremlBrowser:
       print(format_layer(ly, li))
       li += 1
 
-
   &#34;&#34;&#34; 
   CoreML Model Surgery - connect and delete layers 
   &#34;&#34;&#34;
@@ -634,7 +629,7 @@ class CoremlBrowser:
       ```
       returns:
 
-        `  (changed_layer =  &#39;None&#39;, error = &#34;Layer [&#39;conv100&#39;] not found&#34;)  `
+        `(changed_layer =  &#39;None&#39;, error = &#34;Layer [&#39;conv100&#39;] not found&#34;)`
     &#34;&#34;&#34;
     from copy import deepcopy
 
@@ -677,7 +672,7 @@ class CoremlBrowser:
     returns:
     ```
       [
-        {&#39;deleted_layer&#39;: &#39;conv335&#39;,  &#39;input&#39;: [&#39;bn334&#39;], &#39;output&#39;: [&#39;conv335&#39;]},
+        {&#39;deleted_layer&#39;: &#39;conv335&#39;, &#39;input&#39;: [&#39;bn334&#39;], &#39;output&#39;: [&#39;conv335&#39;]},
         {&#39;deleted_layer&#39;: &#39;bn400&#39;, &#39;input&#39;: [&#39;conv399&#39;], &#39;output&#39;: [&#39;bn400&#39;]},
       ]
     ```
@@ -1006,15 +1001,13 @@ Return images (jpg and png) randomly sampled from child dirs.</li>
     - `show_tail`        Convenience functions  of  method `show_nn`
     - `get_rand_images`  Return images (jpg and png) randomly sampled from child dirs.
 
-  -------
+  --------
   &#34;&#34;&#34;
 
   def __init__(self, mlmodel: Union[Upath, MLModel]):
     &#34;&#34;&#34;
-
     Args:
       mlmodel: Either the path to the `protobuf` spec, or an extant `MLModel` object
-
     &#34;&#34;&#34;
     self.mlmodel = None
     &#34;&#34;&#34; A MLModel object. The result of **compiling** the &#39;.mlmodel&#39; file &#34;&#34;&#34;
@@ -1062,9 +1055,10 @@ Return images (jpg and png) randomly sampled from child dirs.</li>
       which (should) contain shape info, or an empty string.
 
     Note:
-      The *OSX shell command* to run the compiler is
+       XCode installs `coremlcompiler`.
+       An example of the *OSX shell command* to run the compiler is
 
-      `xcrun coremlcompiler compile rn50.mlmodel out &gt; rn50-compile-out.txt`
+      `xcrun coremlcompiler compile rn50.mlmodel rn50_out_dir `
 
     &#34;&#34;&#34;
     from sys import platform
@@ -1390,13 +1384,10 @@ Return images (jpg and png) randomly sampled from child dirs.</li>
 
     return line1 + &#34;\n&#34; + line2 + &#34;\n&#34;
 
-
   # So that these can be changed dynamically, for now
   sp = &#34;   &#34; # formatting spacer
   _one_line_heading = f&#34;Lay Name{ sp:6}In{sp:9}Out{sp:9}Shapes{sp:10}Type,Chan(s){sp:9}Size,Stride,Dilation,#Wts&#34;
   _two_line_heading = f&#34;Lay Name{sp:21}In/Out{sp:26}Type,Chan(s)/Shape{sp:3}Size,Stride,Dilation,#Wts&#34;
-  #_two_line_heading = f&#34;Lay Name{sp:20}In/Out{sp:30}Type,Chan(s){sp:7}Size,Stride,Dilation,#Wts&#34;
-
 
   def show_nn(self,  start:Union[int,str]=0, count=4,  break_len=8 ) -&gt; None:
     &#34;&#34;&#34;
@@ -1444,7 +1435,6 @@ Return images (jpg and png) randomly sampled from child dirs.</li>
       print(format_layer(ly, li))
       li += 1
 
-
   &#34;&#34;&#34; 
   CoreML Model Surgery - connect and delete layers 
   &#34;&#34;&#34;
@@ -1485,7 +1475,7 @@ Return images (jpg and png) randomly sampled from child dirs.</li>
       ```
       returns:
 
-        `  (changed_layer =  &#39;None&#39;, error = &#34;Layer [&#39;conv100&#39;] not found&#34;)  `
+        `(changed_layer =  &#39;None&#39;, error = &#34;Layer [&#39;conv100&#39;] not found&#34;)`
     &#34;&#34;&#34;
     from copy import deepcopy
 
@@ -1528,7 +1518,7 @@ Return images (jpg and png) randomly sampled from child dirs.</li>
     returns:
     ```
       [
-        {&#39;deleted_layer&#39;: &#39;conv335&#39;,  &#39;input&#39;: [&#39;bn334&#39;], &#39;output&#39;: [&#39;conv335&#39;]},
+        {&#39;deleted_layer&#39;: &#39;conv335&#39;, &#39;input&#39;: [&#39;bn334&#39;], &#39;output&#39;: [&#39;conv335&#39;]},
         {&#39;deleted_layer&#39;: &#39;bn400&#39;, &#39;input&#39;: [&#39;conv399&#39;], &#39;output&#39;: [&#39;bn400&#39;]},
       ]
     ```
@@ -1627,8 +1617,9 @@ Used to capture shape information when instantiating a CoremlBrowser.</p>
 <p><code>stdout</code> (str): The <em>stdout</em> from the compiler,
 which (should) contain shape info, or an empty string.</p>
 <h2 id="note">Note</h2>
-<p>The <em>OSX shell command</em> to run the compiler is</p>
-<p><code>xcrun coremlcompiler compile rn50.mlmodel out &gt; rn50-compile-out.txt</code></p></section>
+<p>XCode installs <code>coremlcompiler</code>.
+An example of the <em>OSX shell command</em> to run the compiler is</p>
+<p><code>xcrun coremlcompiler compile rn50.mlmodel rn50_out_dir</code></p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def compile_coreml(self)-&gt;str:
@@ -1644,9 +1635,10 @@ which (should) contain shape info, or an empty string.</p>
     which (should) contain shape info, or an empty string.
 
   Note:
-    The *OSX shell command* to run the compiler is
+     XCode installs `coremlcompiler`.
+     An example of the *OSX shell command* to run the compiler is
 
-    `xcrun coremlcompiler compile rn50.mlmodel out &gt; rn50-compile-out.txt`
+    `xcrun coremlcompiler compile rn50.mlmodel rn50_out_dir `
 
   &#34;&#34;&#34;
   from sys import platform
@@ -1752,7 +1744,7 @@ the <em>to layer</em>'s <code>input</code> with the <em>from layer</em>'s <code>
     ```
     returns:
 
-      `  (changed_layer =  &#39;None&#39;, error = &#34;Layer [&#39;conv100&#39;] not found&#34;)  `
+      `(changed_layer =  &#39;None&#39;, error = &#34;Layer [&#39;conv100&#39;] not found&#34;)`
   &#34;&#34;&#34;
   from copy import deepcopy
 
@@ -1796,7 +1788,7 @@ Example:</p>
 </code></pre>
 <p>returns:</p>
 <pre><code>  [
-    {'deleted_layer': 'conv335',  'input': ['bn334'], 'output': ['conv335']},
+    {'deleted_layer': 'conv335', 'input': ['bn334'], 'output': ['conv335']},
     {'deleted_layer': 'bn400', 'input': ['conv399'], 'output': ['bn400']},
   ]
 </code></pre></section>
@@ -1819,7 +1811,7 @@ Example:</p>
   returns:
   ```
     [
-      {&#39;deleted_layer&#39;: &#39;conv335&#39;,  &#39;input&#39;: [&#39;bn334&#39;], &#39;output&#39;: [&#39;conv335&#39;]},
+      {&#39;deleted_layer&#39;: &#39;conv335&#39;, &#39;input&#39;: [&#39;bn334&#39;], &#39;output&#39;: [&#39;conv335&#39;]},
       {&#39;deleted_layer&#39;: &#39;bn400&#39;, &#39;input&#39;: [&#39;conv399&#39;], &#39;output&#39;: [&#39;bn400&#39;]},
     ]
   ```
